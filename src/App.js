@@ -1,4 +1,4 @@
-import "./App.css";
+import "./assets/css/root.css";
 import LoginAdmin from "./pages/admin/Login";
 
 function App() {

@@ -1,6 +1,7 @@
-function LoginAdmin(params) {
+import '../../assets/css/user/login.css'
+function LoginAdmin() {
   return (
-    <main className="tampilan">
+    <main className="tampilan-login">
       <section className="card">
         <img src={Image} alt="adminlogo" />
         <form action="">
