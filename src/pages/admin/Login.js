@@ -1,9 +1,10 @@
 import '../../assets/css/user/login.css'
+import logoAdmin from '../../assets/image/AdminLogo.png'
 function LoginAdmin() {
   return (
     <main className="tampilan-login">
       <section className="card">
-        <img src={Image} alt="adminlogo" />
+        <img src={logoAdmin} alt="adminlogo" />
         <form action="">
           <div className="grup">
             <label htmlFor="">Username</label>
