@@ -1,9 +1,38 @@
 :root {
-	--primary: #FDFDBD;
-	--primary-variant: #C8FFD4;
-	--secondary: #B8E8FC;
-	--secondary-variant:#B1AFFF;
-	--error:#B00020;
-	--succes:#C8FFD4;
-	--surface: #FFF;
+  --primary: #fdfdbd;
+  --primary-variant: #c8ffd4;
+  --secondary: #b8e8fc;
+  --secondary-variant: #b1afff;
+  --error: #b00020;
+  --succes: #c8ffd4;
+  --surface: #fff;
+}
+body {
+	background-color: var(--primary);
+}
+video {
+  width: 500px;
+  display: block;
+  margin: 2.5rem auto;
+  border-radius: 1rem;
+  box-shadow: 10px 10px 20px 5px rgba(0, 0, 0, 0.4);
+}
+table {
+  border-collapse: collapse;
+	margin: 0 auto;
+	overflow-x: auto;
+}
+h1 {
+	text-align: center;
+}
+table tr th,
+table tr td {
+  border: 2px solid black;
+	padding: 0.5rem;
+}
+
+@media screen and (max-width: 500px) {
+  video {
+    width: 250px;
+  }
 }
