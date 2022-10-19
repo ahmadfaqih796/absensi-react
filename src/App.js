@@ -4,8 +4,6 @@ import "./assets/css/root.css";
 import LoginAdmin from "./pages/admin/Login";
 import Absensi from "./pages/monitor/Absensi";
 import Beranda from "./pages/admin/Beranda";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
 
 const Protected = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(localStorage.getItem("token"))
@@ -17,7 +15,6 @@ const Protected = () => {
 function App() {
   return (
     <BrowserRouter>
-     <Navbar/>
       <Routes>
         <Route path="/admin/" element={<Protected />}>
           <Route index element={<Beranda />} />
@@ -30,7 +27,6 @@ function App() {
         <Route path="/login" element={<LoginAdmin />} />
         <Route path='/absensi' element={<Absensi />} />
       </Routes>
-      <Footer/>
     </BrowserRouter>
   );
 }
