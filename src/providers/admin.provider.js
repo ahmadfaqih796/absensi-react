@@ -35,3 +35,13 @@ export const deleteKaryawan = (nik) => {
       .catch((err) => reject(err));
   });
 };
+
+export const createKaryawan = (karyawan) => {
+	let payload = {...karyawan}
+  return new Promise((resolve, reject) => {
+    axios
+      .post(BASE_URL + "/admin/register", payload)
+      .then((res) => resolve(res))
+      .catch((err) => reject(err));
+  });
+};
