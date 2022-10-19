@@ -28,7 +28,7 @@ legend {
 	text-align: center;
 	font-size: 5rem;
 	font-family: flora;
-	margin: 1rem 0;
+	margin: 0 0 1rem 0;
 	color: var(--text-color-primary);
 }
 .konten {
@@ -36,7 +36,7 @@ legend {
 	background-color: var(--surface);
 	display: block;
 	border-radius: 1rem;
-	margin: 0 auto;
+	margin: 3rem auto;
 	padding: 1rem;
 }
 
@@ -51,6 +51,20 @@ table tr th,
 table tr td {
   border: 2px solid black;
 	padding: 0.5rem;
+	text-align: center;
+}
+table tr td a{
+	text-decoration: none;
+	font-size: 2rem;
+}
+table tr td #print {
+	color: var(--text-color-primary);
+}
+table tr td #edit {
+	color: yellow;
+}
+table tr td #delete{
+	color: red;
 }
 
 @media screen and (max-width: 500px) {

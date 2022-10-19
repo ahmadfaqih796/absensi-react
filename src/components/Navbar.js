@@ -1,8 +1,16 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "../assets/css/navigasi.css";
 import absensi from "../assets/image/logo-absensi.png";
 
-const Navbar = ({logout}) => {
+const Navbar = () => {
+	const navigate = useNavigate();
+  const handleLogout = (e) => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("email");
+    localStorage.removeItem("IS_LOGIN");
+    navigate("/login");
+  };
   return (
     <nav className="navigation">
       <a href="/" className="logo">
@@ -37,7 +45,7 @@ const Navbar = ({logout}) => {
             <a href="/contact">Report</a>
           </li>
 					<li>
-            <a href="/login" onClick={logout}>Logout</a>
+            <a href="/login" onClick={handleLogout}>Logout</a>
           </li>
         </ul>
       </div>

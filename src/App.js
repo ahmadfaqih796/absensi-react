@@ -4,6 +4,7 @@ import "./assets/css/root.css";
 import LoginAdmin from "./pages/admin/Login";
 import Absensi from "./pages/monitor/Absensi";
 import Beranda from "./pages/admin/Beranda"
+import DataKaryawan from "./pages/admin/karyawan/data.karyawan";
 
 const Protected = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(localStorage.getItem("token"))
@@ -24,6 +25,7 @@ function App() {
           
         </Route>
 				<Route path="/admin/beranda" element={<Beranda />}/>
+				<Route path="/admin/karyawan" element={<DataKaryawan />}/>
         <Route path="/login" element={<LoginAdmin />} />
         <Route path='/absensi' element={<Absensi />} />
       </Routes>

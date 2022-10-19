@@ -3,16 +3,10 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 
 const Beranda = () => {
-  const navigate = useNavigate();
-  const handleLogout = (e) => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("email");
-    localStorage.removeItem("IS_LOGIN");
-    navigate("/login");
-  };
+  
   return (
     <>
-      <Navbar logout={handleLogout} />
+      <Navbar />
       <legend>Home</legend>
       <main className="konten">
         <section className="statik">
