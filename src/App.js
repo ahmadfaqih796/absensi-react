@@ -3,11 +3,10 @@ import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
 import "./assets/css/root.css";
 import LoginAdmin from "./pages/admin/Login";
 import Absensi from "./pages/monitor/Absensi";
-import Beranda from "./pages/admin/Beranda"
 import DataKaryawan from "./pages/admin/karyawan/data.karyawan";
-
+import Beranda from "./pages/admin/Beranda";
 const Protected = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(localStorage.getItem("token"))
+	const [isAuthenticated, setIsAuthenticated] = useState(localStorage.getItem("token"))
   return <>
       {isAuthenticated ? <Outlet />: <LoginAdmin />}
     </>
