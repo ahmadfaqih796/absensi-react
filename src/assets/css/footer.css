@@ -1,0 +1,16 @@
+footer{
+    text-align: center;
+    background-color:var(--primary-variant);;
+    color: white;
+    padding: 10px;
+  }
+  
+.madein{
+  text-decoration: none;
+  display: block;
+  width: 100%;
+	font-size: 1.2rem;
+  color: #29b35f;
+	font-weight: 700;
+	transition: all 0.5s;
+}
