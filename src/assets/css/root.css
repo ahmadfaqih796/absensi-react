@@ -6,6 +6,8 @@
   --error: #b00020;
   --succes: #c8ffd4;
   --surface: #fff;
+	--text-color: #000;
+	--text-color-primary:#29b35f;
 }
 body {
 	background-color: var(--primary);
@@ -21,6 +23,26 @@ table {
   border-collapse: collapse;
 	margin: 0 auto;
 	overflow-x: auto;
+}
+legend {
+	text-align: center;
+	font-size: 5rem;
+	font-family: flora;
+	margin: 1rem 0;
+	color: var(--text-color-primary);
+}
+.konten {
+	width: 70%;
+	background-color: var(--surface);
+	display: block;
+	border-radius: 1rem;
+	margin: 0 auto;
+	padding: 1rem;
+}
+
+@font-face {
+	font-family: flora;
+	src: url(../font/FloralFourDemo-rgAJx.otf);
 }
 h1 {
 	text-align: center;

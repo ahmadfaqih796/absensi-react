@@ -23,6 +23,7 @@ function App() {
           {/* <Route path="/transaksi" element={<TransaksiPage />} /> */}
           
         </Route>
+				<Route path="/admin/beranda" element={<Beranda />}/>
         <Route path="/login" element={<LoginAdmin />} />
         <Route path='/absensi' element={<Absensi />} />
       </Routes>

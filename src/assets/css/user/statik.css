@@ -1,0 +1,19 @@
+.statik {
+	justify-content: space-around;
+	display: flex;
+	margin: 1rem;
+	text-align: center;
+}
+.statik article {
+	padding: 1rem;
+}
+.statik i{
+	font-size: 6rem;
+	color: var(--text-color-primary);
+}
+.statik h2,
+.statik h3 {
+	text-align: center;
+	margin: 0.5rem 0 0 0;
+	font-weight: 700;
+}
