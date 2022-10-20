@@ -73,7 +73,26 @@ legend {
   padding: 1rem;
   overflow-x: auto;
 }
-
+.flex {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+button {
+	display: block;
+	margin: 1rem auto;
+	padding: 0.5rem 1rem;
+	background-color: var(--primary-variant);
+	border: 2px solid var(--text-color-primary);
+	border-radius: 0.5rem;
+	color: black;
+	font-size: 1rem;
+	transition: all 0.5s;
+}
+button:hover {
+	background-color: var(--text-color-primary);
+	color: var(--surface);
+}
 @font-face {
   font-family: flora;
   src: url(../font/FloralFourDemo-rgAJx.otf);
@@ -100,4 +119,7 @@ h1 {
   video {
     width: 250px;
   }
+	.konten {
+		width: 85%;
+	}
 }

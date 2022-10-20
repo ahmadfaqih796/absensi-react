@@ -1,4 +1,4 @@
-import '../../../assets/css/user/form.css'
+import "../../../assets/css/user/form.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../../components/Navbar";
@@ -34,6 +34,7 @@ const CreateKaryawan = () => {
       <Navbar />
       <main className="konten">
         <legend>Create</legend>
+				<a href="/admin/karyawan" className="tambah">&#60;</a>
         <form className="karyawan">
           <div className="grup">
             <label htmlFor="usernamede">Username</label>
@@ -66,48 +67,38 @@ const CreateKaryawan = () => {
           </div>
 
           <div className="grup">
-            <label htmlFor="departemen">Username</label>
+            <label htmlFor="departemen">Departemen</label>
             <input
               type="text"
               name="departemen"
-              value={karyawan.username}
-              onChange={handleKaryawan}
-            />
-          </div>
-          <div className="grup">
-            <label htmlFor="isAdmin">Username</label>
-            <input
-              type="text"
-              name="isAdmin"
-              value={karyawan.username}
+              value={karyawan.departemen}
               onChange={handleKaryawan}
             />
           </div>
 
           <div className="grup">
-            <label htmlFor="phone">Username</label>
+            <label htmlFor="phone">No Handphone</label>
             <input
               type="number"
               name="phone"
-              value={karyawan.username}
+              value={karyawan.phone}
               onChange={handleKaryawan}
             />
           </div>
           <div className="grup">
-            <label htmlFor="alamat">Username</label>
+            <label htmlFor="alamat">Alamat</label>
             <input
               type="text"
               name="alamat"
-              value={karyawan.username}
+              value={karyawan.alamat}
               onChange={handleKaryawan}
             />
           </div>
-
-          <button onClick={(e) => handleTambahKaryawan(karyawan, e)}>
-            Tambah
-          </button>
         </form>
-        <p>{JSON.stringify(karyawan)}</p>
+        <button className="tombol" onClick={(e) => handleTambahKaryawan(karyawan, e)}>
+          Tambah
+        </button>
+        {/* <p>{JSON.stringify(karyawan)}</p> */}
       </main>
     </>
   );
