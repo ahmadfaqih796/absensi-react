@@ -1,3 +1,20 @@
-.karyawan {
-	background-color: red;
+#detailKaryawan {
+  display: flex;
+}
+
+hr {
+  border: 1px solid black;
+}
+table {
+  width: fit-content;
+  margin: 0;
+  text-align: left;
+  border-radius: 100px;
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 5px 10px;
+}
+table tr td {
+  text-align: left;
+  color: black;
 }
