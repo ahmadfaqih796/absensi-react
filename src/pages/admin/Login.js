@@ -18,7 +18,7 @@ function LoginAdmin() {
         localStorage.setItem("IS_LOGIN", true);
         navigate("/admin/");
       })
-      .catch((err) => alert(err));
+      .catch((err) => alert(err.message));
   };
   return (
     <main className="tampilan-login">

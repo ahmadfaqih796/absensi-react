@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../../../components/Navbar";
 import { createKaryawan } from "../../../providers/admin.provider";
 
@@ -8,15 +9,15 @@ const defaultKaryawan = {
   name: "juzx",
   gender: "L",
   departemen: "IT",
-  isSPV: true,
   isAdmin: false,
   phone: "091212",
   alamat: "jl.kesasar",
 };
 const CreateKaryawan = () => {
+	const navigate = useNavigate()
   const [karyawan, setKaryawan] = useState(defaultKaryawan);
 
-  const handleTerima = (e) => {
+  const handleKaryawan = (e) => {
     const name = e.target.name;
     const value = e.target.value;
     setKaryawan((values) => ({ ...values, [name]: value }));
@@ -25,6 +26,7 @@ const CreateKaryawan = () => {
     createKaryawan(karyawan, e).then((response) => {
       alert("data berhasil ditambah");
     });
+		navigate("/admin/karyawan")
   };
   return (
     <>
@@ -32,18 +34,36 @@ const CreateKaryawan = () => {
       <main className="konten">
         <legend>Create</legend>
         <form>
-          <input
-            type="text"
-            name="username"
-            value={karyawan.username}
-            onChange={handleTerima}
-          />
-          <input
-            type="text"
-            name="name"
-            value={karyawan.name}
-            onChange={handleTerima}
-          />
+          <div className="grup">
+            <label htmlFor="username">Username</label>
+            <input
+              type="text"
+              name="username"
+              value={karyawan.username}
+              onChange={handleKaryawan}
+            />
+          </div>
+          <div className="grup">
+            <label htmlFor="name">Nama</label>
+            <input
+              type="text"
+              name="name"
+              value={karyawan.name}
+              onChange={handleKaryawan}
+            />
+          </div>
+          <div className="grup">
+						<label htmlFor="gender">Jenis Kelamin</label>
+            <select
+              name="gender"
+              value={karyawan.gender}
+              onChange={handleKaryawan}
+            >
+              <option value="L">Laki-laki</option>
+              <option value="P">Perempuan</option>
+            </select>
+          </div>
+
           <button onClick={(e) => handleTambahKaryawan(karyawan, e)}>
             Tambah
           </button>

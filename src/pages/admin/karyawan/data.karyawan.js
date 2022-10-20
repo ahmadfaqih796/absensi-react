@@ -4,6 +4,7 @@ import {
   deleteKaryawan,
   getAllKaryawan,
 } from "../../../providers/admin.provider";
+import Footer from "../../../components/Footer";
 
 const DataKaryawan = () => {
   const [karyawan, setKaryawan] = useState([]);
@@ -19,6 +20,20 @@ const DataKaryawan = () => {
       alert("data berhasil dihapus");
     });
   };
+	const cetak = () => {
+		window.print();
+		// javascript:printDiv('print-area-1');
+	}
+	const printDiv = (divName) => {
+		var printContents = document.getElementById(divName).innerHTML;
+		var originalContents = document.body.innerHTML;
+
+		document.body.innerHTML = printContents;
+
+		window.print();
+
+		document.body.innerHTML = originalContents;
+}
   return (
     <>
       <Navbar />
@@ -44,7 +59,7 @@ const DataKaryawan = () => {
           </thead>
           <tbody>
             {karyawan.map((data, index) => (
-              <tr key={index}>
+              <tr id="data" key={index}>
                 <td>{index + 1}</td>
                 <td>{data.nik}</td>
                 <td>{data.username}</td>
@@ -52,7 +67,7 @@ const DataKaryawan = () => {
                 <td>{data.gender}</td>
                 <td>{data.isActive ? "Aktif" : "Tidak Aktif"}</td>
                 <td>
-                  <a href={"/admin/karyawan/update/"+ data._id} id="print" >
+                  <a href={"/admin/karyawan/cetak/"+ data.nik} id="print" >
                     <i className="fa-solid fa-print"></i>
                   </a>
                 </td>
@@ -76,6 +91,7 @@ const DataKaryawan = () => {
         </table>
         {/* <p>{JSON.stringify(karyawan)}</p> */}
       </main>
+			<Footer />
     </>
   );
 };
