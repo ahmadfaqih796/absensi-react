@@ -5,8 +5,7 @@ import absensi from "../assets/image/logo-absensi.png";
 import { useState } from "react";
 
 const Navbar = () => {
- 
-	const navigate = useNavigate();
+  const navigate = useNavigate();
   const handleLogout = (e) => {
     localStorage.removeItem("token");
     localStorage.removeItem("email");
@@ -14,16 +13,19 @@ const Navbar = () => {
     navigate("/login");
   };
 
-  const [isNavExpanded, setIsNavExpanded] = useState(false)
+  const [isNavExpanded, setIsNavExpanded] = useState(false);
   return (
     <nav className="navigation">
       <a href="/" className="logo">
         <img src={absensi} alt="" />
       </a>
 
-      <button className="menu" onClick={() => {
-          setIsNavExpanded(!isNavExpanded)
-        }}>
+      <button
+        className="menu"
+        onClick={() => {
+          setIsNavExpanded(!isNavExpanded);
+        }}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-5 w-5"
@@ -38,14 +40,16 @@ const Navbar = () => {
         </svg>
       </button>
 
-      <div className={
+      <div
+        className={
           isNavExpanded ? "navigation-menu expanded" : "navigation-menu"
-        }>
+        }
+      >
         <ul>
           <li>
             <a href="/home">Home</a>
           </li>
-					<li>
+          <li>
             <a href="/about">Absen</a>
           </li>
           <li>
@@ -54,8 +58,10 @@ const Navbar = () => {
           <li>
             <a href="/contact">Report</a>
           </li>
-					<li>
-            <a href="/login" onClick={handleLogout}>Logout</a>
+          <li>
+            <a href="/login" onClick={handleLogout}>
+              Logout
+            </a>
           </li>
         </ul>
       </div>

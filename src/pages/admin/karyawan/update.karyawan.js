@@ -3,18 +3,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import Navbar from "../../../components/Navbar";
 import { getDetailKaryawan, updateKaryawan } from "../../../providers/admin.provider";
 
-const defaultKaryawan = {
-  username: "",
-  password: "qwerty",
-  name: "juzx",
-  gender: "L",
-  departemen: "IT",
-  isSPV: true,
-  isAdmin: false,
-  phone: "091212",
-  alamat: "jl.kesasar",
-  isActive: true,
-};
 const UpdateKaryawan = () => {
   const params = useParams();
   const navigate = useNavigate();
