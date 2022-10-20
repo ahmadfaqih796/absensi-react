@@ -73,6 +73,7 @@
     width: 100%;
     height: calc(100vh - 77px);
     background-color: white;
+		z-index: 1;
   }
   .navigation-menu li {
     text-align: center;

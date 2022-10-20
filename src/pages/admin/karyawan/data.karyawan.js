@@ -1,24 +1,30 @@
 import Navbar from "../../../components/Navbar";
 import { useEffect, useState } from "react";
-import { deleteKaryawan, getAllKaryawan } from "../../../providers/admin.provider";
+import {
+  deleteKaryawan,
+  getAllKaryawan,
+} from "../../../providers/admin.provider";
 
 const DataKaryawan = () => {
   const [karyawan, setKaryawan] = useState([]);
   useEffect(() => {
-    getAllKaryawan().then((response) => {
-      setKaryawan(response.data.data);
-    });
+    getAllKaryawan()
+      .then((response) => {
+        setKaryawan(response.data.data);
+      })
+      .catch((err) => {alert(err.message)});
   }, []);
-	const handleDelete = (nik, e) => {
-		deleteKaryawan(nik).then(() => {
-			alert("data berhasil dihapus")
-		})
-	}
+  const handleDelete = (nik, e) => {
+    deleteKaryawan(nik).then(() => {
+      alert("data berhasil dihapus");
+    });
+  };
   return (
     <>
       <Navbar />
       <main className="konten">
         <legend>Home</legend>
+				<a href="/admin/karyawan/tambah" className="tambah">+</a>
         <table>
           <thead>
             <tr>
@@ -56,7 +62,11 @@ const DataKaryawan = () => {
                   </a>
                 </td>
                 <td>
-                  <a href="/admin/karyawan" id="delete"  onClick={(e) => handleDelete(data.nik, e)}>
+                  <a
+                    href="/admin/karyawan"
+                    id="delete"
+                    onClick={(e) => handleDelete(data.nik, e)}
+                  >
                     <i className="fa-solid fa-trash"></i>
                   </a>
                 </td>
@@ -64,8 +74,7 @@ const DataKaryawan = () => {
             ))}
           </tbody>
         </table>
-
-        <p>{JSON.stringify(karyawan)}</p>
+        {/* <p>{JSON.stringify(karyawan)}</p> */}
       </main>
     </>
   );

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Navbar from "../../../components/Navbar";
 import { createKaryawan } from "../../../providers/admin.provider";
 
@@ -22,7 +22,9 @@ const CreateKaryawan = () => {
     setKaryawan((values) => ({ ...values, [name]: value }));
   };
   const handleTambahKaryawan = (karyawan, e) => {
-    createKaryawan(karyawan, e).then(() => alert("data berhasil ditambah"));
+    createKaryawan(karyawan, e).then((response) => {
+      alert("data berhasil ditambah");
+    });
   };
   return (
     <>
@@ -36,7 +38,15 @@ const CreateKaryawan = () => {
             value={karyawan.username}
             onChange={handleTerima}
           />
-					<button onClick={(e) => handleTambahKaryawan(karyawan, e)}>Tambah</button>
+          <input
+            type="text"
+            name="name"
+            value={karyawan.name}
+            onChange={handleTerima}
+          />
+          <button onClick={(e) => handleTambahKaryawan(karyawan, e)}>
+            Tambah
+          </button>
         </form>
         <p>{JSON.stringify(karyawan)}</p>
       </main>

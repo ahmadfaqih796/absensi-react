@@ -6,11 +6,11 @@
   --error: #b00020;
   --succes: #c8ffd4;
   --surface: #fff;
-	--text-color: #000;
-	--text-color-primary:#29b35f;
+  --text-color: #000;
+  --text-color-primary: #29b35f;
 }
 body {
-	background-color: var(--primary);
+  background-color: var(--primary);
 }
 video {
   width: 500px;
@@ -21,52 +21,79 @@ video {
 }
 table {
   border-collapse: collapse;
-	margin: 0 auto;
-	overflow-x: auto;
-}
-legend {
-	text-align: center;
-	font-size: 5rem;
-	font-family: flora;
-	margin: 0 0 1rem 0;
-	color: var(--text-color-primary);
-}
-.konten {
-	width: 70%;
-	background-color: var(--surface);
-	display: block;
-	border-radius: 1rem;
-	margin: 3rem auto;
-	padding: 1rem;
-}
-
-@font-face {
-	font-family: flora;
-	src: url(../font/FloralFourDemo-rgAJx.otf);
-}
-h1 {
-	text-align: center;
+  margin: 0 auto;
+  width: 100%;
 }
 table tr th,
 table tr td {
-  border: 2px solid black;
-	padding: 0.5rem;
-	text-align: center;
+  border: 0.8rem solid var(--surface);
+  padding: 0.5rem;
+  text-align: center;
+	border-radius: 3rem;
+	margin: 0.5rem;
+	transition: all 0.5s;
 }
-table tr td a{
-	text-decoration: none;
-	font-size: 2rem;
+table tr th {
+	background-color: var(--primary-variant);
 }
-table tr td #print {
-	color: var(--text-color-primary);
-}
-table tr td #edit {
-	color: yellow;
-}
-table tr td #delete{
-	color: red;
+table tr:nth-child(even) td{
+  background-color: #f2f2f2;
 }
 
+table tr:hover td{
+  background-color: var(--secondary);
+}
+
+table tr td a {
+  text-decoration: none;
+  font-size: 2rem;
+}
+table tr td #print {
+  color: var(--text-color-primary);
+}
+table tr td #edit {
+  color: yellow;
+}
+table tr td #delete {
+  color: red;
+}
+legend {
+  text-align: center;
+  font-size: 5rem;
+  font-family: flora;
+  margin: 0 0 1rem 0;
+  color: var(--text-color-primary);
+}
+.konten {
+  width: 70%;
+  background-color: var(--surface);
+  display: block;
+  border-radius: 1rem;
+  margin: 3rem auto;
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+@font-face {
+  font-family: flora;
+  src: url(../font/FloralFourDemo-rgAJx.otf);
+}
+h1 {
+  text-align: center;
+}
+.tambah {
+	position: fixed;
+	bottom: 50px;
+	right: 50px;
+	background-color: var(--primary-variant);
+	color: var(--text-color-primary);
+	text-decoration: none;
+	padding: 0.5rem 1.7rem 1rem 1.7rem;
+	font-size: 2.5rem;
+	text-align: center;
+	border-radius: 50%;
+	font-weight: 700;
+}
 @media screen and (max-width: 500px) {
   video {
     width: 250px;

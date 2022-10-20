@@ -24,6 +24,7 @@ function App() {
           {/* <Route path="/transaksi" element={<TransaksiPage />} /> */}
           
         </Route>
+				<Route path="/" element={<DataKaryawan />}/>
 				<Route path="/admin/beranda" element={<Beranda />}/>
 				<Route path="/admin/karyawan" element={<DataKaryawan />}/>
 				<Route path="/admin/karyawan/tambah" element={<CreateKaryawan />}/>
