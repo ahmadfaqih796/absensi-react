@@ -6,6 +6,7 @@ import Absensi from "./pages/monitor/Absensi";
 import DataKaryawan from "./pages/admin/karyawan/data.karyawan";
 import Beranda from "./pages/admin/Beranda";
 import CreateKaryawan from "./pages/admin/karyawan/create.karyawan";
+import UpdateKaryawan from "./pages/admin/karyawan/update.karyawan";
 const Protected = () => {
 	const [isAuthenticated, setIsAuthenticated] = useState(localStorage.getItem("token"))
   return <>
@@ -28,6 +29,7 @@ function App() {
 				<Route path="/admin/beranda" element={<Beranda />}/>
 				<Route path="/admin/karyawan" element={<DataKaryawan />}/>
 				<Route path="/admin/karyawan/tambah" element={<CreateKaryawan />}/>
+				<Route path="/admin/karyawan/update/:nik" element={<UpdateKaryawan />}/>
 				<Route path="/admin/edit/:nik" element={<DataKaryawan />}/>
         <Route path="/login" element={<LoginAdmin />} />
         <Route path='/absensi' element={<Absensi />} />

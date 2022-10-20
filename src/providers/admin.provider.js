@@ -45,3 +45,13 @@ export const createKaryawan = (karyawan) => {
       .catch((err) => reject(err));
   });
 };
+
+export const updateKaryawan = (nik, karyawan) => {
+	let payload = {...karyawan}
+	return new Promise((resolve, reject) => {
+		axios
+		.put(BASE_URL + `/admin/search/${nik}`, payload)
+		.then((res) => resolve(res))
+		.catch((err) => reject(err))
+	})
+}

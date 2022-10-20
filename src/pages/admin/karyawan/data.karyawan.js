@@ -52,12 +52,12 @@ const DataKaryawan = () => {
                 <td>{data.gender}</td>
                 <td>{data.isActive ? "Aktif" : "Tidak Aktif"}</td>
                 <td>
-                  <a href="/" id="print">
+                  <a href={"/admin/karyawan/update/"+ data._id} id="print" >
                     <i className="fa-solid fa-print"></i>
                   </a>
                 </td>
                 <td>
-                  <a href="/" id="edit">
+                  <a href={"/admin/karyawan/update/"+ data.nik} id="edit">
                     <i className="fa-solid fa-pen-to-square"></i>
                   </a>
                 </td>
