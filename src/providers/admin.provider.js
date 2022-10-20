@@ -27,6 +27,15 @@ export const getAllKaryawan = () => {
   });
 };
 
+export const getDetailKaryawan = (nik) => {
+  return new Promise((resolve, reject) => {
+    axios
+      .get(BASE_URL + `/admin/search/${nik}`)
+      .then((response) => resolve(response))
+      .catch((err) => reject(err));
+  });
+};
+
 export const deleteKaryawan = (nik) => {
   return new Promise((resolve, reject) => {
     axios
