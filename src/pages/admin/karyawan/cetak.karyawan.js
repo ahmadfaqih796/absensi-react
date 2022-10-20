@@ -1,9 +1,5 @@
 import "../../../assets/css/user/cetak.css";
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import Navbar from "../../../components/Navbar";
 import logo from "../../../assets/image/logo-absensi.png";
-import { getDetailKaryawan } from "../../../providers/admin.provider";
 
 const CetakKaryawan = ({ karyawan }) => {
   const Print = () => {

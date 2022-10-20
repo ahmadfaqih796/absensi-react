@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import { useState } from "react";
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
 import "./assets/css/root.css";
@@ -37,6 +38,16 @@ function App() {
         <Route path='/absensi' element={<Absensi />} />
       </Routes>
     </BrowserRouter>
+=======
+import './App.css';
+
+function App() {
+  return (
+    <>
+			<h2>makan qub</h2>
+			<h3>belum makan lapar nih, laper</h3>
+		</>
+>>>>>>> Stashed changes
   );
 }
 
