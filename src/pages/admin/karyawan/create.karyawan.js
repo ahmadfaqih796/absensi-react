@@ -14,7 +14,7 @@ const defaultKaryawan = {
   alamat: "jl.kesasar",
 };
 const CreateKaryawan = () => {
-	const navigate = useNavigate()
+  const navigate = useNavigate();
   const [karyawan, setKaryawan] = useState(defaultKaryawan);
 
   const handleKaryawan = (e) => {
@@ -26,7 +26,7 @@ const CreateKaryawan = () => {
     createKaryawan(karyawan, e).then((response) => {
       alert("data berhasil ditambah");
     });
-		navigate("/admin/karyawan")
+    navigate("/admin/karyawan");
   };
   return (
     <>
@@ -53,7 +53,7 @@ const CreateKaryawan = () => {
             />
           </div>
           <div className="grup">
-						<label htmlFor="gender">Jenis Kelamin</label>
+            <label htmlFor="gender">Jenis Kelamin</label>
             <select
               name="gender"
               value={karyawan.gender}
@@ -62,6 +62,44 @@ const CreateKaryawan = () => {
               <option value="L">Laki-laki</option>
               <option value="P">Perempuan</option>
             </select>
+          </div>
+
+          <div className="grup">
+            <label htmlFor="departemen">Username</label>
+            <input
+              type="text"
+              name="username"
+              value={karyawan.username}
+              onChange={handleKaryawan}
+            />
+          </div>
+          <div className="grup">
+            <label htmlFor="isAdmin">Username</label>
+            <input
+              type="text"
+              name="username"
+              value={karyawan.username}
+              onChange={handleKaryawan}
+            />
+          </div>
+
+          <div className="grup">
+            <label htmlFor="phone">Username</label>
+            <input
+              type="number"
+              name="username"
+              value={karyawan.username}
+              onChange={handleKaryawan}
+            />
+          </div>
+          <div className="grup">
+            <label htmlFor="alamat">Username</label>
+            <input
+              type="text"
+              name="username"
+              value={karyawan.username}
+              onChange={handleKaryawan}
+            />
           </div>
 
           <button onClick={(e) => handleTambahKaryawan(karyawan, e)}>
