@@ -36,7 +36,7 @@ const CreateKaryawan = () => {
         <legend>Create</legend>
         <form className="karyawan">
           <div className="grup">
-            <label htmlFor="username">Username</label>
+            <label htmlFor="usernamede">Username</label>
             <input
               type="text"
               name="username"
@@ -69,7 +69,7 @@ const CreateKaryawan = () => {
             <label htmlFor="departemen">Username</label>
             <input
               type="text"
-              name="username"
+              name="departemen"
               value={karyawan.username}
               onChange={handleKaryawan}
             />
@@ -78,7 +78,7 @@ const CreateKaryawan = () => {
             <label htmlFor="isAdmin">Username</label>
             <input
               type="text"
-              name="username"
+              name="isAdmin"
               value={karyawan.username}
               onChange={handleKaryawan}
             />
@@ -88,7 +88,7 @@ const CreateKaryawan = () => {
             <label htmlFor="phone">Username</label>
             <input
               type="number"
-              name="username"
+              name="phone"
               value={karyawan.username}
               onChange={handleKaryawan}
             />
@@ -97,7 +97,7 @@ const CreateKaryawan = () => {
             <label htmlFor="alamat">Username</label>
             <input
               type="text"
-              name="username"
+              name="alamat"
               value={karyawan.username}
               onChange={handleKaryawan}
             />
