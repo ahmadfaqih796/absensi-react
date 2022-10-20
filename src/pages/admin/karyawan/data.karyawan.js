@@ -4,7 +4,6 @@ import {
   deleteKaryawan,
   getAllKaryawan,
 } from "../../../providers/admin.provider";
-import Footer from "../../../components/Footer";
 
 const DataKaryawan = () => {
   const [karyawan, setKaryawan] = useState([]);
@@ -78,7 +77,6 @@ const DataKaryawan = () => {
         </table>
         {/* <p>{JSON.stringify(karyawan)}</p> */}
       </main>
-			<Footer />
     </>
   );
 };
