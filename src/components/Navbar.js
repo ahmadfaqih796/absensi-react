@@ -2,8 +2,10 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../assets/css/navigasi.css";
 import absensi from "../assets/image/logo-absensi.png";
+import { useState } from "react";
 
 const Navbar = () => {
+ 
 	const navigate = useNavigate();
   const handleLogout = (e) => {
     localStorage.removeItem("token");
@@ -11,12 +13,17 @@ const Navbar = () => {
     localStorage.removeItem("IS_LOGIN");
     navigate("/login");
   };
+
+  const [isNavExpanded, setIsNavExpanded] = useState(false)
   return (
     <nav className="navigation">
       <a href="/" className="logo">
         <img src={absensi} alt="" />
       </a>
-      <button className="menu">
+
+      <button className="menu" onClick={() => {
+          setIsNavExpanded(!isNavExpanded)
+        }}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-5 w-5"
@@ -30,7 +37,10 @@ const Navbar = () => {
           />
         </svg>
       </button>
-      <div className="navigation-menu">
+
+      <div className={
+          isNavExpanded ? "navigation-menu expanded" : "navigation-menu"
+        }>
         <ul>
           <li>
             <a href="/home">Home</a>
