@@ -67,7 +67,7 @@ const DataKaryawan = () => {
                 <td>{data.gender}</td>
                 <td>{data.isActive ? "Aktif" : "Tidak Aktif"}</td>
                 <td>
-                  <a href={"/admin/karyawan/cetak/"+ data.nik} id="print" >
+                  <a href={"/admin/karyawan/detail/"+ data.nik} id="print" >
                     <i className="fa-solid fa-print"></i>
                   </a>
                 </td>

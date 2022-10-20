@@ -1,3 +1,4 @@
+import '../../../assets/css/user/form.css'
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../../components/Navbar";
@@ -33,7 +34,7 @@ const CreateKaryawan = () => {
       <Navbar />
       <main className="konten">
         <legend>Create</legend>
-        <form>
+        <form className="karyawan">
           <div className="grup">
             <label htmlFor="username">Username</label>
             <input

@@ -1,20 +1,17 @@
-footer{
-    width: 100%;
-    text-align: center;
-    background-color:var(--primary-variant);
-    box-shadow: 0 2px 2px 2px rgba(9, 9, 9, 0.23);
-    padding: 10px;
-    border-radius: 13px;
-    position: absolute;
-    bottom: 5px;
-  }
-  
-.madein{
+footer {
+  text-align: center;
+  background-color: var(--primary-variant);
+  box-shadow: 0 2px 2px 2px rgba(9, 9, 9, 0.23);
+  padding: 10px;
+  border-radius: 1rem 1rem 0 0;
+}
+
+.madein {
   text-decoration: none;
   display: block;
   width: 100%;
-	font-size: 1.2rem;
+  font-size: 1.2rem;
   color: #29b35f;
-	font-weight: 700;
-	transition: all 0.5s;
+  font-weight: 700;
+  transition: all 0.5s;
 }

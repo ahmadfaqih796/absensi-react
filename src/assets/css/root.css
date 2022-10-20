@@ -87,12 +87,14 @@ h1 {
 	right: 50px;
 	background-color: var(--primary-variant);
 	color: var(--text-color-primary);
+	border: 2px solid var(--text-color-primary);
 	text-decoration: none;
 	padding: 0.5rem 1.7rem 1rem 1.7rem;
 	font-size: 2.5rem;
 	text-align: center;
 	border-radius: 50%;
 	font-weight: 700;
+	z-index: 2;
 }
 @media screen and (max-width: 500px) {
   video {

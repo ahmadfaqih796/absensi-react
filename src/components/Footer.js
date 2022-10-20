@@ -6,7 +6,8 @@ const Footer = () => {
       <>
         <footer>
           <div>
-          <p className="madein">© 2022 Copyright: Made with by Team QIHTOON - Tugas Akhir</p>
+          <p className="madein">© 2022 Copyright: </p>
+					<p className="madein">Made with by Team QIHTOON - Tugas Akhir</p>
           </div>
         </footer>
       </>

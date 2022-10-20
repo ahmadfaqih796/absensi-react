@@ -1,0 +1,35 @@
+#cetak {
+	display: none;
+}
+@media print {
+	header {
+		display: flex;
+		flex: 100%;
+		justify-content: center;
+		align-items: center;
+	}
+	img {
+		width: 6cm;
+		height: 2cm;
+	}
+  .judul {
+		margin: 1cm auto;
+		text-align: center;
+		font-size: 1rem;
+		font-size: 2rem;
+	}
+	p {
+		text-align: center;
+	}
+	hr {
+		border: 2px dashed black;
+	}
+	table {
+		width: fit-content;
+		margin: 0;
+		text-align: left;
+	}
+	table tr td {
+		text-align: left;
+	}
+}
