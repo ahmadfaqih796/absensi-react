@@ -7,28 +7,42 @@ import Beranda from "./pages/admin/Beranda";
 import CreateKaryawan from "./pages/admin/karyawan/create.karyawan";
 import UpdateKaryawan from "./pages/admin/karyawan/update.karyawan";
 import DetailKaryawan from "./pages/admin/karyawan/detail.karyawan";
+import { useState } from "react";
+import Authorized from "./pages/admin/Authorized";
 const Protected = () => {
-	// const [isAuthenticated, setIsAuthenticated] = useState(localStorage.getItem("token"))
-	const isAuthenticated = localStorage.getItem("token")
-  return <>
-      {isAuthenticated ? <Outlet />: <LoginAdmin />}
-    </>
+  const lokal = {
+    token: localStorage.getItem("token"),
+    status: localStorage.getItem("status"),
+  };
+  const [isAuthenticated, setIsAuthenticated] = useState(lokal);
+  // const isAuthenticated = lokal
+  if (isAuthenticated) {
+    return isAuthenticated.status === "false" ? <Authorized /> : <Outlet />;
+  } else {
+    return <LoginAdmin />;
+  }
 };
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/admin/" element={<Protected />}>
+        <Route path="/admin" element={<Protected />}>
           <Route index element={<Beranda />} />
-					<Route path="/admin/karyawan" element={<DataKaryawan />}/>
-					<Route path="/admin/karyawan/tambah" element={<CreateKaryawan />}/>
-					<Route path="/admin/karyawan/update/:nik" element={<UpdateKaryawan />}/>
-					<Route path="/admin/karyawan/detail/:nik" element={<DetailKaryawan />}/>
+          <Route path="/admin/karyawan" element={<DataKaryawan />} />
+          <Route path="/admin/karyawan/tambah" element={<CreateKaryawan />} />
+          <Route
+            path="/admin/karyawan/update/:nik"
+            element={<UpdateKaryawan />}
+          />
+          <Route
+            path="/admin/karyawan/detail/:nik"
+            element={<DetailKaryawan />}
+          />
         </Route>
-				<Route path="/" element={<LoginAdmin />}/>
-        <Route path="/admin/login" element={<LoginAdmin />} />
-        <Route path='/absensi' element={<Absensi />} />
+        <Route path="/" element={<LoginAdmin />} />
+        <Route path="/login" element={<LoginAdmin />} />
+        <Route path="/absensi" element={<Absensi />} />
       </Routes>
     </BrowserRouter>
   );

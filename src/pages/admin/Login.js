@@ -14,7 +14,10 @@ function LoginAdmin() {
       .then((response) => {
         let data = response.data;
         localStorage.setItem("token", `JWT ${data.token}`);
-        navigate("/admin/");
+				localStorage.setItem("admin", data.isAdmin)
+				localStorage.setItem("spv", data.isSPV)
+				localStorage.setItem("status", data.isActive)
+        navigate("/admin");
       })
       .catch((err) => alert(err.message));
   };

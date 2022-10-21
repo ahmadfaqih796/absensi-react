@@ -8,8 +8,9 @@ const Navbar = () => {
   const navigate = useNavigate();
   const handleLogout = (e) => {
     localStorage.removeItem("token");
-    localStorage.removeItem("email");
-    localStorage.removeItem("IS_LOGIN");
+    localStorage.removeItem("admin");
+    localStorage.removeItem("spv");
+    localStorage.removeItem("status");
     navigate("/login");
   };
 
@@ -53,10 +54,10 @@ const Navbar = () => {
             <a href="/about">Absen</a>
           </li>
           <li>
-            <a href="/about">Karyawan</a>
+            <a href="/admin/karyawan">Karyawan</a>
           </li>
           <li>
-            <a href="/contact">Report</a>
+            <a href="/admin/report">Report</a>
           </li>
           <li>
             <a href="/login" onClick={handleLogout}>
