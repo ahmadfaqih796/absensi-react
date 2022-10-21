@@ -7,7 +7,7 @@ import { createKaryawan } from "../../../providers/admin.provider";
 const defaultKaryawan = {
   username: "",
   password: "12345",
-  name: "juzx",
+  name: "",
   gender: "L",
   departemen: "IT",
   isAdmin: false,
@@ -37,7 +37,7 @@ const CreateKaryawan = () => {
 				<a href="/admin/karyawan" className="tambah">&#60;</a>
         <form className="karyawan">
           <div className="grup">
-            <label htmlFor="usernamede">Username</label>
+            <label htmlFor="username">Username</label>
             <input
               type="text"
               name="username"
@@ -95,7 +95,7 @@ const CreateKaryawan = () => {
             />
           </div>
         </form>
-        <button className="tombol" onClick={(e) => handleTambahKaryawan(karyawan, e)}>
+        <button onClick={(e) => handleTambahKaryawan(karyawan, e)}>
           Tambah
         </button>
         {/* <p>{JSON.stringify(karyawan)}</p> */}

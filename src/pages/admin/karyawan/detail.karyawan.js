@@ -5,9 +5,21 @@ import Navbar from "../../../components/Navbar";
 import { getDetailKaryawan } from "../../../providers/admin.provider";
 import CetakKaryawan from "./cetak.karyawan";
 
+const defaultKaryawan = {
+  username: "",
+  password: "",
+  name: "",
+  gender: "",
+  departemen: "",
+  phone: "",
+  alamat: "",
+	tanggalMasuk: "",
+	isActive: ""
+};
+
 const DetailKaryawan = () => {
   const params = useParams();
-  const [karyawan, setKaryawan] = useState([]);
+  const [karyawan, setKaryawan] = useState(defaultKaryawan);
   console.log(params.nik);
   useEffect(() => {
     getDetailKaryawan(params.nik).then((res) => {
@@ -22,7 +34,7 @@ const DetailKaryawan = () => {
 				<a href="/admin/karyawan" className="tambah">&#60;</a>
 				<form className="karyawan">
           <div className="grup">
-            <label htmlFor="usernamede">Username</label>
+            <label htmlFor="username">Username</label>
             <input
               type="text"
               name="username"

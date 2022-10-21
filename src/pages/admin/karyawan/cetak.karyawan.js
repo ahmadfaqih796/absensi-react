@@ -26,41 +26,44 @@ const CetakKaryawan = ({ karyawan }) => {
         <hr />
         <h1 className="judul">Karyawan</h1>
         <table>
-          <tr>
-            <td>Nama</td>
-            <td>:</td>
-            <td>{karyawan.name}</td>
-          </tr>
-          <tr>
-            <td>NIK</td>
-            <td>:</td>
-            <td>{karyawan.nik}</td>
-          </tr>
-          <tr>
-            <td>Jenis Kelamin</td>
-            <td>:</td>
-            <td>{karyawan.gender}</td>
-          </tr>
-          <tr>
-            <td>Departemen</td>
-            <td>:</td>
-            <td>{karyawan.isSPV ? "Manager" : "Karyawan"}</td>
-          </tr>
-          <tr>
-            <td>Telepon</td>
-            <td>:</td>
-            <td>{karyawan.phone}</td>
-          </tr>
-          <tr>
-            <td>Alamat</td>
-            <td>:</td>
-            <td>{karyawan.alamat}</td>
-          </tr>
-          <tr>
-            <td>Status</td>
-            <td>:</td>
-            <td>{karyawan.isActive ? "Aktif" : "Tidak Aktif"}</td>
-          </tr>
+          <thead></thead>
+          <tbody>
+            <tr>
+              <td>Nama</td>
+              <td>:</td>
+              <td>{karyawan.name}</td>
+            </tr>
+            <tr>
+              <td>NIK</td>
+              <td>:</td>
+              <td>{karyawan.nik}</td>
+            </tr>
+            <tr>
+              <td>Jenis Kelamin</td>
+              <td>:</td>
+              <td>{karyawan.gender}</td>
+            </tr>
+            <tr>
+              <td>Departemen</td>
+              <td>:</td>
+              <td>{karyawan.isSPV ? "Manager" : "Karyawan"}</td>
+            </tr>
+            <tr>
+              <td>Telepon</td>
+              <td>:</td>
+              <td>{karyawan.phone}</td>
+            </tr>
+            <tr>
+              <td>Alamat</td>
+              <td>:</td>
+              <td>{karyawan.alamat}</td>
+            </tr>
+            <tr>
+              <td>Status</td>
+              <td>:</td>
+              <td>{karyawan.isActive ? "Aktif" : "Tidak Aktif"}</td>
+            </tr>
+          </tbody>
         </table>
       </div>
       <button onClick={Print}>cetak</button>

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
 import "./assets/css/root.css";
 import LoginAdmin from "./pages/admin/Login";
@@ -9,7 +8,8 @@ import CreateKaryawan from "./pages/admin/karyawan/create.karyawan";
 import UpdateKaryawan from "./pages/admin/karyawan/update.karyawan";
 import DetailKaryawan from "./pages/admin/karyawan/detail.karyawan";
 const Protected = () => {
-	const [isAuthenticated, setIsAuthenticated] = useState(localStorage.getItem("token"))
+	// const [isAuthenticated, setIsAuthenticated] = useState(localStorage.getItem("token"))
+	const isAuthenticated = localStorage.getItem("token")
   return <>
       {isAuthenticated ? <Outlet />: <LoginAdmin />}
     </>
@@ -21,18 +21,12 @@ function App() {
       <Routes>
         <Route path="/admin/" element={<Protected />}>
           <Route index element={<Beranda />} />
-          {/* <Route path='/' element={<Detail />} />
-          <Route path='/chapter/:id' element={<Chapter />} /> */}
-          {/* <Route path="/transaksi" element={<TransaksiPage />} /> */}
-          
+					<Route path="/admin/karyawan" element={<DataKaryawan />}/>
+					<Route path="/admin/karyawan/tambah" element={<CreateKaryawan />}/>
+					<Route path="/admin/karyawan/update/:nik" element={<UpdateKaryawan />}/>
+					<Route path="/admin/karyawan/detail/:nik" element={<DetailKaryawan />}/>
         </Route>
-				<Route path="/" element={<DataKaryawan />}/>
-				<Route path="/admin/beranda" element={<Beranda />}/>
-				<Route path="/admin/karyawan" element={<DataKaryawan />}/>
-				<Route path="/admin/karyawan/tambah" element={<CreateKaryawan />}/>
-				<Route path="/admin/karyawan/update/:nik" element={<UpdateKaryawan />}/>
-				<Route path="/admin/karyawan/detail/:nik" element={<DetailKaryawan />}/>
-				<Route path="/admin/edit/:nik" element={<DataKaryawan />}/>
+				<Route path="/" element={<LoginAdmin />}/>
         <Route path="/admin/login" element={<LoginAdmin />} />
         <Route path='/absensi' element={<Absensi />} />
       </Routes>

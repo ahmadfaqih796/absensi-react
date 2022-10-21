@@ -14,8 +14,6 @@ function LoginAdmin() {
       .then((response) => {
         let data = response.data;
         localStorage.setItem("token", `JWT ${data.token}`);
-        // localStorage.setItem("email", data.email);
-        localStorage.setItem("IS_LOGIN", true);
         navigate("/admin/");
       })
       .catch((err) => alert(err.message));

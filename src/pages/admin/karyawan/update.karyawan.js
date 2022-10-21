@@ -3,11 +3,19 @@ import { useNavigate, useParams } from "react-router-dom";
 import Navbar from "../../../components/Navbar";
 import { getDetailKaryawan, updateKaryawan } from "../../../providers/admin.provider";
 
+const defaultKaryawan = {
+  username: "",
+  password: "",
+  name: "",
+  gender: "",
+  departemen: "",
+  phone: "",
+  alamat: "",
+};
 const UpdateKaryawan = () => {
   const params = useParams();
   const navigate = useNavigate();
-  const [karyawan, setKaryawan] = useState([]);
-  console.log(params.nik);
+  const [karyawan, setKaryawan] = useState(defaultKaryawan);
 
 	useEffect(() => {
 		getDetailKaryawan(params.nik).then((res) => {
@@ -34,11 +42,19 @@ const UpdateKaryawan = () => {
         <a href="/admin/karyawan" className="tambah">&#60;</a>
         <form className="karyawan">
           <div className="grup">
-            <label htmlFor="usernamede">Username</label>
+            <label htmlFor="username">Username</label>
             <input
               type="text"
               name="username"
               value={karyawan.username}
+              onChange={handleKaryawan}
+            />
+          </div>
+					<div className="grup">
+            <label htmlFor="password">Password</label>
+            <input
+              type="text"
+              name="password"
               onChange={handleKaryawan}
             />
           </div>
@@ -95,7 +111,7 @@ const UpdateKaryawan = () => {
           <button onClick={(e) => handleEditKaryawan(params.nik, karyawan, e)}>
             Update
           </button>
-        {/* <p>{JSON.stringify(karyawan)}</p> */}
+        <p>{JSON.stringify(karyawan)}</p>
       </main>
     </>
   );
