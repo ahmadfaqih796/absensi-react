@@ -6,6 +6,11 @@ import { useState } from "react";
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const [isNavExpanded, setIsNavExpanded] = useState(false);
+
+  const admin = localStorage.getItem("admin");
+  const spv = localStorage.getItem("spv");
+
   const handleLogout = (e) => {
     localStorage.removeItem("token");
     localStorage.removeItem("admin");
@@ -14,7 +19,6 @@ const Navbar = () => {
     navigate("/login");
   };
 
-  const [isNavExpanded, setIsNavExpanded] = useState(false);
   return (
     <nav className="navigation">
       <a href="/" className="logo">
@@ -46,25 +50,42 @@ const Navbar = () => {
           isNavExpanded ? "navigation-menu expanded" : "navigation-menu"
         }
       >
-        <ul>
-          <li>
-            <a href="/home">Home</a>
-          </li>
-          <li>
-            <a href="/about">Absen</a>
-          </li>
-          <li>
-            <a href="/admin/karyawan">Karyawan</a>
-          </li>
-          <li>
-            <a href="/admin/report">Report</a>
-          </li>
-          <li>
-            <a href="/login" onClick={handleLogout}>
-              Logout
-            </a>
-          </li>
-        </ul>
+        {admin === "true" && spv === "true" ? (
+          <ul>
+            <li>
+              <a href="/home">Home</a>
+            </li>
+            <li>
+              <a href="/about">Absen</a>
+            </li>
+            <li>
+              <a href="/admin/karyawan">Karyawan</a>
+            </li>
+
+            <li>
+              <a href="/admin/report">Report</a>
+            </li>
+            <li>
+              <a href="/login" onClick={handleLogout}>
+                Logout
+              </a>
+            </li>
+          </ul>
+        ) : (
+          <ul>
+            <li>
+              <a href="/karyawan">Home</a>
+            </li>
+            <li>
+              <a href="/karyawan/report">Report</a>
+            </li>
+            <li>
+              <a href="/login" onClick={handleLogout}>
+                Logout
+              </a>
+            </li>
+          </ul>
+        )}
       </div>
     </nav>
   );

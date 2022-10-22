@@ -14,10 +14,12 @@ function LoginAdmin() {
       .then((response) => {
         let data = response.data;
         localStorage.setItem("token", `JWT ${data.token}`);
+				localStorage.setItem("status", data.isActive)
 				localStorage.setItem("admin", data.isAdmin)
 				localStorage.setItem("spv", data.isSPV)
-				localStorage.setItem("status", data.isActive)
-        navigate("/admin");
+				const admin = localStorage.getItem("admin", data.isAdmin)
+				const spv = localStorage.getItem("spv", data.isSPV)
+				admin === "true" && spv ==="true" ? navigate("/admin") : navigate("/karyawan")
       })
       .catch((err) => alert(err.message));
   };

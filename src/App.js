@@ -9,6 +9,7 @@ import UpdateKaryawan from "./pages/admin/karyawan/update.karyawan";
 import DetailKaryawan from "./pages/admin/karyawan/detail.karyawan";
 import { useState } from "react";
 import Authorized from "./pages/admin/Authorized";
+import BerandaKaryawan from "./pages/karyawan/beranda.karyawan";
 const Protected = () => {
   const lokal = {
     token: localStorage.getItem("token"),
@@ -39,6 +40,10 @@ function App() {
             path="/admin/karyawan/detail/:nik"
             element={<DetailKaryawan />}
           />
+        </Route>
+        {/* karyawan */}
+        <Route path="/karyawan" element={<Protected />}>
+          <Route index element={<BerandaKaryawan />} />
         </Route>
         <Route path="/" element={<LoginAdmin />} />
         <Route path="/login" element={<LoginAdmin />} />
