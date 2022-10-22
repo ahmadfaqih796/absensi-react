@@ -21,10 +21,10 @@ export const SigninAdminProvider = (username, password) => {
   });
 };
 
-export const getAllKaryawan = () => {
+export const getAllKaryawan = (halaman) => {
   return new Promise((resolve, reject) => {
     axios
-      .get(BASE_URL + "/admin", Authorized)
+      .get(BASE_URL + `/admin?page=${halaman}`, Authorized)
       .then((response) => resolve(response))
       .catch((err) => reject(err));
   });

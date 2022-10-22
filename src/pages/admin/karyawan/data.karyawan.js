@@ -7,25 +7,53 @@ import {
 
 const DataKaryawan = () => {
   const [karyawan, setKaryawan] = useState([]);
+  const [halaman, setHalaman] = useState(1);
+
+  const maju = (num, e) => {
+    const majuId = document.getElementById("maju");
+    setHalaman(halaman + 1);
+    getAllKaryawan(num, e).then((response) => {
+      console.log(num);
+      response.data.data.length === 2
+        ? setKaryawan(response.data.data)
+        : (majuId.style = "display:none");
+      console.log(response);
+    });
+  };
+  const mundur = (num, e) => {
+    const mundurId = document.getElementById("mundur");
+    setHalaman(halaman - 1);
+    getAllKaryawan(num, e).then((response) => {
+      console.log(num);
+      response.data.data.length === 2
+        ? setKaryawan(response.data.data)
+        : (mundurId.style = "display:none");
+      console.log(response);
+    });
+  };
   useEffect(() => {
-    getAllKaryawan()
+    getAllKaryawan(halaman)
       .then((response) => {
         setKaryawan(response.data.data);
       })
-      .catch((err) => {alert(err.message)});
+      .catch((err) => {
+        alert(err.message);
+      });
   }, []);
   const handleDelete = (nik, e) => {
     deleteKaryawan(nik).then(() => {
       alert("data berhasil dihapus");
     });
   };
-	
+
   return (
     <>
       <Navbar />
       <main className="konten">
         <legend>Home</legend>
-				<a href="/admin/karyawan/tambah" className="tambah">+</a>
+        <a href="/admin/karyawan/tambah" className="tambah">
+          +
+        </a>
         <table>
           <thead>
             <tr>
@@ -53,12 +81,12 @@ const DataKaryawan = () => {
                 <td>{data.gender}</td>
                 <td>{data.isActive ? "Aktif" : "Tidak Aktif"}</td>
                 <td>
-                  <a href={"/admin/karyawan/detail/"+ data.nik} id="print" >
+                  <a href={"/admin/karyawan/detail/" + data.nik} id="print">
                     <i className="fa-solid fa-print"></i>
                   </a>
                 </td>
                 <td>
-                  <a href={"/admin/karyawan/update/"+ data.nik} id="edit">
+                  <a href={"/admin/karyawan/update/" + data.nik} id="edit">
                     <i className="fa-solid fa-pen-to-square"></i>
                   </a>
                 </td>
@@ -75,6 +103,16 @@ const DataKaryawan = () => {
             ))}
           </tbody>
         </table>
+        <div className="flex flex-center">
+          <button id="mundur" onClick={(e) => mundur(halaman - 1, e)}>
+            Mundur
+          </button>
+          <button>{halaman}</button>
+          <button id="maju" onClick={(e) => maju(halaman + 1, e)}>
+            Maju
+          </button>
+        </div>
+
         {/* <p>{JSON.stringify(karyawan)}</p> */}
       </main>
     </>
