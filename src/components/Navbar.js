@@ -4,6 +4,67 @@ import "../assets/css/navigasi.css";
 import absensi from "../assets/image/logo-absensi.png";
 import { useState } from "react";
 
+const MenuNavbar = ({ admin, spv, logout }) => {
+  if (admin === "true" && spv === "true") {
+    return (
+      // admin
+      <ul>
+        <li>
+          <a href="/home">Home</a>
+        </li>
+        <li>
+          <a href="/about">Absen</a>
+        </li>
+        <li>
+          <a href="/admin/karyawan">Karyawan</a>
+        </li>
+        <li>
+          <a href="/admin/report">Report</a>
+        </li>
+        <li>
+          <a href="/login" onClick={logout}>
+            Logout
+          </a>
+        </li>
+      </ul>
+    );
+  } else if (admin === "false" && spv === "true") {
+    return (
+      // spv
+      <ul>
+        <li>
+          <a href="/spv">Home</a>
+        </li>
+        <li>
+          <a href="/spv/laporan/create">Laporan</a>
+        </li>
+        <li>
+          <a href="/login" onClick={logout}>
+            Logout
+          </a>
+        </li>
+      </ul>
+    );
+  } else {
+    return (
+      // karyawan
+      <ul>
+        <li>
+          <a href="/karyawan">Home</a>
+        </li>
+        <li>
+          <a href="/karyawan/laporan/create">Laporan</a>
+        </li>
+        <li>
+          <a href="/login" onClick={logout}>
+            Logout
+          </a>
+        </li>
+      </ul>
+    );
+  }
+};
+
 const Navbar = () => {
   const navigate = useNavigate();
   const [isNavExpanded, setIsNavExpanded] = useState(false);
@@ -24,7 +85,6 @@ const Navbar = () => {
       <a href="/" className="logo">
         <img src={absensi} alt="" />
       </a>
-
       <button
         className="menu"
         onClick={() => {
@@ -44,48 +104,12 @@ const Navbar = () => {
           />
         </svg>
       </button>
-
       <div
         className={
           isNavExpanded ? "navigation-menu expanded" : "navigation-menu"
         }
       >
-        {admin === "true" && spv === "true" ? (
-          <ul>
-            <li>
-              <a href="/home">Home</a>
-            </li>
-            <li>
-              <a href="/about">Absen</a>
-            </li>
-            <li>
-              <a href="/admin/karyawan">Karyawan</a>
-            </li>
-
-            <li>
-              <a href="/admin/report">Report</a>
-            </li>
-            <li>
-              <a href="/login" onClick={handleLogout}>
-                Logout
-              </a>
-            </li>
-          </ul>
-        ) : (
-          <ul>
-            <li>
-              <a href="/karyawan">Home</a>
-            </li>
-            <li>
-              <a href="/karyawan/laporan/create">Laporan</a>
-            </li>
-            <li>
-              <a href="/login" onClick={handleLogout}>
-                Logout
-              </a>
-            </li>
-          </ul>
-        )}
+        <MenuNavbar admin={admin} spv={spv} logout={handleLogout} />
       </div>
     </nav>
   );
