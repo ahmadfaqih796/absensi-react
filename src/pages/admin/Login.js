@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../assets/css/user/login.css";
-import logoAdmin from "../../assets/image/AdminLogo.png";
+import logoAdmin from "../../assets/image/absen.png";
 import { SigninAdminProvider } from "../../providers/admin.provider";
 function LoginAdmin() {
   const [username, setUsername] = useState("");
@@ -54,7 +54,7 @@ function LoginAdmin() {
             <input type="submit" onClick={handleLogin} value={"login"} />
           </div>
         </form>
-        {JSON.stringify([username, password])}
+        {/* {JSON.stringify([username, password])} */}
       </section>
     </main>
   );

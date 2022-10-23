@@ -46,16 +46,16 @@
 .tampilan-login input[type="password"] {
   margin: 0 5px;
   padding: 0.5rem;
-  border: 2px solid var(--secondary-variant);
+  border: 2px solid var(--text-color-primary);
   border-radius: 1rem;
 }
 .tampilan-login input[type="submit"] {
-  background-color: var(--secondary-variant);
+  background-color: var(--text-color-primary);
   color: var(--surface);
   border: 0;
   font-size: 1.2rem;
   padding: 0.5rem 1rem;
   border-radius: 1rem;
   width: 100px;
-  margin: 0 auto;
+  margin: 0 auto;
 }
