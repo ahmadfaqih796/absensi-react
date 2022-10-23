@@ -14,12 +14,18 @@ function LoginAdmin() {
       .then((response) => {
         let data = response.data;
         localStorage.setItem("token", `JWT ${data.token}`);
-				localStorage.setItem("status", data.isActive)
-				localStorage.setItem("admin", data.isAdmin)
-				localStorage.setItem("spv", data.isSPV)
-				const admin = localStorage.getItem("admin", data.isAdmin)
-				const spv = localStorage.getItem("spv", data.isSPV)
-				admin === "true" && spv ==="true" ? navigate("/admin") : navigate("/karyawan")
+        localStorage.setItem("status", data.isActive);
+        localStorage.setItem("admin", data.isAdmin);
+        localStorage.setItem("spv", data.isSPV);
+        const admin = localStorage.getItem("admin", data.isAdmin);
+        const spv = localStorage.getItem("spv", data.isSPV);
+        if (admin === "true" && spv === "true") {
+          navigate("/admin");
+        } else if (admin === "false" && spv === "true") {
+          navigate("/spv");
+        } else {
+          navigate("/karyawan");
+        }
       })
       .catch((err) => alert(err.message));
   };
@@ -40,7 +46,7 @@ function LoginAdmin() {
             <label htmlFor="">Password</label>
             <input
               type="password"
-							name="password"
+              name="password"
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
@@ -48,7 +54,7 @@ function LoginAdmin() {
             <input type="submit" onClick={handleLogin} value={"login"} />
           </div>
         </form>
-				{JSON.stringify([username, password])}
+        {JSON.stringify([username, password])}
       </section>
     </main>
   );

@@ -5,7 +5,7 @@ import {
   getAllKaryawan,
 } from "../../../providers/admin.provider";
 
-const DataKaryawan = () => {
+const DataLaporan = () => {
   const [karyawan, setKaryawan] = useState([]);
   const [halaman, setHalaman] = useState(1);
 
@@ -118,4 +118,4 @@ const DataKaryawan = () => {
     </>
   );
 };
-export default DataKaryawan;
+export default DataLaporan;

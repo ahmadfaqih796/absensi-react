@@ -77,7 +77,7 @@ const Navbar = () => {
               <a href="/karyawan">Home</a>
             </li>
             <li>
-              <a href="/karyawan/report">Report</a>
+              <a href="/karyawan/laporan/create">Laporan</a>
             </li>
             <li>
               <a href="/login" onClick={handleLogout}>

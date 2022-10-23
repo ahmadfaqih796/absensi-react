@@ -4,12 +4,14 @@ import LoginAdmin from "./pages/admin/Login";
 import Absensi from "./pages/monitor/Absensi";
 import DataKaryawan from "./pages/admin/karyawan/data.karyawan";
 import Beranda from "./pages/admin/Beranda";
-import CreateKaryawan from "./pages/admin/karyawan/create.karyawan";
 import UpdateKaryawan from "./pages/admin/karyawan/update.karyawan";
 import DetailKaryawan from "./pages/admin/karyawan/detail.karyawan";
 import { useState } from "react";
 import Authorized from "./pages/admin/Authorized";
 import BerandaKaryawan from "./pages/karyawan/beranda.karyawan";
+import CreateKaryawan from "./pages/admin/karyawan/create.karyawan";
+import CreateLaporanKaryawan from "./pages/karyawan/create.laporan";
+import BerandaSpv from "./pages/spv/beranda.spv";
 const Protected = () => {
   const lokal = {
     token: localStorage.getItem("token"),
@@ -31,7 +33,10 @@ function App() {
         <Route path="/admin" element={<Protected />}>
           <Route index element={<Beranda />} />
           <Route path="/admin/karyawan" element={<DataKaryawan />} />
-          <Route path="/admin/karyawan/tambah" element={<CreateKaryawan />} />
+          <Route
+            path="/admin/karyawan/tambah"
+            element={<CreateKaryawan />}
+          />
           <Route
             path="/admin/karyawan/update/:nik"
             element={<UpdateKaryawan />}
@@ -44,6 +49,14 @@ function App() {
         {/* karyawan */}
         <Route path="/karyawan" element={<Protected />}>
           <Route index element={<BerandaKaryawan />} />
+          <Route
+            path="/karyawan/laporan/create"
+            element={<CreateLaporanKaryawan />}
+          />
+        </Route>
+				{/* spv */}
+        <Route path="/spv" element={<Protected />}>
+          <Route index element={<BerandaSpv />} />
         </Route>
         <Route path="/" element={<LoginAdmin />} />
         <Route path="/login" element={<LoginAdmin />} />
