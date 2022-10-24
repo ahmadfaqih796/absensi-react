@@ -1,7 +1,7 @@
 import "../../assets/css/user/statik.css";
 import Navbar from "../../components/Navbar";
 
-const Beranda = () => {
+const BerandaAdmin = () => {
   
   return (
     <>
@@ -29,4 +29,4 @@ const Beranda = () => {
     </>
   );
 };
-export default Beranda;
+export default BerandaAdmin;

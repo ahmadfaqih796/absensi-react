@@ -10,7 +10,7 @@ const MenuNavbar = ({ admin, spv, logout }) => {
       // admin
       <ul>
         <li>
-          <a href="/home">Home</a>
+          <a href="/admin">Home</a>
         </li>
         <li>
           <a href="/about">Absen</a>
@@ -19,7 +19,7 @@ const MenuNavbar = ({ admin, spv, logout }) => {
           <a href="/admin/karyawan">Karyawan</a>
         </li>
         <li>
-          <a href="/admin/report">Report</a>
+          <a href="/admin/laporan">Laporan</a>
         </li>
         <li>
           <a href="/login" onClick={logout}>
