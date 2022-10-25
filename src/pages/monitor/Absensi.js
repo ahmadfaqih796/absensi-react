@@ -1,6 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { createAbsensiMasuk } from "../../providers/absensi.provider";
+import {
+  createAbsensiMasuk,
+  getAllAbsensi,
+} from "../../providers/absensi.provider";
 
 const Absensi = () => {
   // const videoRef = useRef(null);
@@ -20,31 +23,44 @@ const Absensi = () => {
   //     });
   // };
 
-  const defaultAbsensi = {
-    nik: "20221006",
-  };
   const navigate = useNavigate();
-  const [absensi, setAbsensi] = useState(defaultAbsensi);
+  const [nik, setNik] = useState("");
+  const [absensi, setAbsensi] = useState([]);
+  const halaman = 1;
+  const tanggal = "2022-10-25";
 
-  const handleAbsensi = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    setAbsensi((values) => ({ ...values, [name]: value }));
-  };
+  useEffect(() => {
+    getAllAbsensi(halaman, tanggal)
+      .then((response) => {
+        setAbsensi(response.data.data);
+      })
+      .catch((err) => {
+        alert(err.message);
+      });
+  }, [halaman]);
 
   const handleTambahAbsensiMasuk = (absensi, e) => {
     createAbsensiMasuk(absensi, e).then((response) => {
-      alert("data berhasil ditambah");
+      alert("anda sudah absen");
     });
-    navigate("/admin/absensi");
+    navigate("/absensi");
   };
 
   return (
     <>
       <h1>Silahkan Absensi</h1>
-      <form>
-        <input type="text" name="nik" value={absensi.nik} onChange={handleAbsensi} />
-        <input type="submit" value={"submit"} onClick={(e) => handleTambahAbsensiMasuk(absensi, e)}/>
+      <form className="search">
+        <input
+          type="text"
+          name="nik"
+          value={nik}
+          onChange={(e) => setNik(e.target.value)}
+        />
+        <input
+          type="submit"
+          value={"submit"}
+          onClick={(e) => handleTambahAbsensiMasuk({ nik: nik }, e)}
+        />
       </form>
       <table>
         <thead>
@@ -54,10 +70,23 @@ const Absensi = () => {
             <th>NIK</th>
             <th>Nama</th>
             <th>Jam Masuk</th>
+            <th>Jam Pulang</th>
             <th>Status</th>
           </tr>
         </thead>
-        <tbody></tbody>
+        <tbody>
+          {absensi.map((data, index) => (
+            <tr id="data" key={index}>
+              <td>{index + 1}</td>
+              <td>{data.kodeAbsen}</td>
+              <td>{data.nik}</td>
+              <td>{data.name}</td>
+              <td>{data.jamMasuk}</td>
+              <td>{data.jamPulang}</td>
+              <td>{data.status ? "valid" : "belum valid"}</td>
+            </tr>
+          ))}
+        </tbody>
       </table>
     </>
   );
