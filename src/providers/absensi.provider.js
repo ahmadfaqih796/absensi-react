@@ -32,3 +32,14 @@ export const updateAbsensiMasuk = (absensi) => {
 		.catch((err) => reject(err))
 	})
 }
+
+// membuat absensi pulang method post
+export const createAbsensiPulang = (absensi) => {
+	let payload = {...absensi}
+	return new Promise ((resolve, reject) => {
+		axios
+		.post(BASE_URL + `/absen/pulang`, payload, Authorized)
+		.then((response) => resolve(response))
+		.catch((err) => reject(err))
+	})
+}

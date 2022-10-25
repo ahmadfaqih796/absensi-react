@@ -75,8 +75,7 @@ legend {
 }
 .flex {
 	display: flex;
-	justify-content: center;
-	width: 100%;
+	justify-content: space-around;
 }
 button {
 	display: block;

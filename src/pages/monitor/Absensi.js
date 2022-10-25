@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   createAbsensiMasuk,
+  createAbsensiPulang,
   getAllAbsensi,
 } from "../../providers/absensi.provider";
 
@@ -41,7 +42,14 @@ const Absensi = () => {
 
   const handleTambahAbsensiMasuk = (absensi, e) => {
     createAbsensiMasuk(absensi, e).then((response) => {
-      alert("anda sudah absen");
+      alert("anda sudah absen masuk");
+    });
+    navigate("/absensi");
+  };
+
+  const handleTambahAbsensiPulang = (absensi, e) => {
+    createAbsensiPulang(absensi, e).then((response) => {
+      alert("anda sudah absen pulang");
     });
     navigate("/absensi");
   };
@@ -49,19 +57,34 @@ const Absensi = () => {
   return (
     <>
       <h1>Silahkan Absensi</h1>
-      <form className="search">
-        <input
-          type="text"
-          name="nik"
-          value={nik}
-          onChange={(e) => setNik(e.target.value)}
-        />
-        <input
-          type="submit"
-          value={"submit"}
-          onClick={(e) => handleTambahAbsensiMasuk({ nik: nik }, e)}
-        />
-      </form>
+      <div className="flex">
+        <form className="search">
+          <input
+            type="text"
+            name="nik"
+            value={nik}
+            onChange={(e) => setNik(e.target.value)}
+          />
+          <input
+            type="submit"
+            value={"Masuk"}
+            onClick={(e) => handleTambahAbsensiMasuk({ nik: nik }, e)}
+          />
+        </form>
+        <form className="search">
+          <input
+            type="text"
+            name="nik"
+            value={nik}
+            onChange={(e) => setNik(e.target.value)}
+          />
+          <input
+            type="submit"
+            value={"Keluar"}
+            onClick={(e) => handleTambahAbsensiPulang({ nik: nik }, e)}
+          />
+        </form>
+      </div>
       <table>
         <thead>
           <tr>
