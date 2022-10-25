@@ -1,16 +1,17 @@
 :root {
-  --primary: #fdfdbd;
-  --primary-variant: #c8ffd4;
+  --primary: #00c853;
+	--p-light: #5efc82;
+	--p-dark: #009624;
   --secondary: #b8e8fc;
   --secondary-variant: #b1afff;
   --error: #b00020;
   --succes: #c8ffd4;
-  --surface: #fff;
+  --surface: #F9F7F7;
   --text-color: #000;
   --text-color-primary: #29b35f;
 }
 body {
-  background-color: var(--primary);
+  background-color: var(--surface);
 }
 video {
   width: 500px;
@@ -29,19 +30,18 @@ table tr td {
   border: 0.8rem solid var(--surface);
   padding: 0.5rem;
   text-align: center;
-	border-radius: 3rem;
 	margin: 0.5rem;
 	transition: all 0.5s;
 }
 table tr th {
-	background-color: var(--primary-variant);
+	background-color: var(--p-light);
 }
 table tr:nth-child(even) td{
   background-color: #f2f2f2;
 }
 
 table tr:hover td{
-  background-color: var(--secondary);
+  background-color: var(--p-light);
 }
 
 table tr td a {
@@ -49,7 +49,7 @@ table tr td a {
   font-size: 2rem;
 }
 table tr td #print {
-  color: var(--text-color-primary);
+  color: var(--p-light);
 }
 table tr td #edit {
   color: yellow;
@@ -60,7 +60,7 @@ table tr td #delete {
 legend {
   text-align: center;
   font-size: 5rem;
-  font-family: flora;
+  font-family: Roboto;
   margin: 0 0 1rem 0;
   color: var(--text-color-primary);
 }
@@ -82,7 +82,7 @@ button {
 	display: block;
 	margin: 1rem auto;
 	padding: 0.5rem 1rem;
-	background-color: var(--primary-variant);
+	background-color: var(--p-dark);
 	border: 2px solid var(--text-color-primary);
 	border-radius: 0.5rem;
 	color: black;
@@ -93,10 +93,7 @@ button:hover {
 	background-color: var(--text-color-primary);
 	color: var(--surface);
 }
-@font-face {
-  font-family: flora;
-  src: url(../font/FloralFourDemo-rgAJx.otf);
-}
+
 h1 {
   text-align: center;
 }
@@ -104,7 +101,7 @@ h1 {
 	position: fixed;
 	bottom: 50px;
 	right: 50px;
-	background-color: var(--primary-variant);
+	background-color: var(--p-light);
 	color: var(--text-color-primary);
 	border: 2px solid var(--text-color-primary);
 	text-decoration: none;

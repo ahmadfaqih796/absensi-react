@@ -9,22 +9,8 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.tampilan-login {
-  background-color: var(--primary);
-  height: 100vh;
-  width: 100%;
-}
-.tampilan-login .card {
-  width: 300px;
-  background-color: var(--surface);
-  position: absolute;
-  top: 50%;
-  left: 50%;
   padding: 1rem;
-  border-radius: 1.5rem;
+  border-radius: 0.5rem;
   transform: translate(-50%, -50%);
 }
 .tampilan-login .card img {
@@ -38,8 +24,7 @@
   padding: 0.5rem;
 }
 .tampilan-login label {
-  text-align: center;
-  margin: 0.5rem 0;
+  margin: 0.5rem;
   font-size: 1.2rem;
 }
 .tampilan-login input[type="text"],
@@ -47,15 +32,18 @@
   margin: 0 5px;
   padding: 0.5rem;
   border: 2px solid var(--text-color-primary);
-  border-radius: 1rem;
+  border-radius: 0.5rem;
 }
 .tampilan-login input[type="submit"] {
   background-color: var(--text-color-primary);
   color: var(--surface);
   border: 0;
   font-size: 1.2rem;
-  padding: 0.5rem 1rem;
-  border-radius: 1rem;
-  width: 100px;
-  margin: 0 auto;
+  padding: 0.5rem 0;
+  border-radius: 0.5rem;
+	margin: 1rem 5px;
+	transition: all 0.5s;
+}
+.tampilan-login input[type="submit"]:hover {
+	background-color: var(--p-dark);
 }
