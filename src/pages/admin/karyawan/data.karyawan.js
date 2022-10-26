@@ -50,7 +50,7 @@ const DataKaryawan = () => {
     <>
       <Navbar />
       <main className="konten">
-        <legend>Home</legend>
+        <legend>Karyawan</legend>
         <a href="/admin/karyawan/tambah" className="tambah">
           +
         </a>

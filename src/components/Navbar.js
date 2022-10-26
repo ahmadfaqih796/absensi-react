@@ -13,7 +13,7 @@ const MenuNavbar = ({ admin, spv, logout }) => {
           <a href="/admin">Home</a>
         </li>
         <li>
-          <a href="/about">Absen</a>
+          <a href="/admin/absensi">Absen</a>
         </li>
         <li>
           <a href="/admin/karyawan">Karyawan</a>
@@ -36,7 +36,7 @@ const MenuNavbar = ({ admin, spv, logout }) => {
           <a href="/spv">Home</a>
         </li>
         <li>
-          <a href="/spv/laporan/create">Laporan</a>
+          <a href="/spv/laporan">Laporan</a>
         </li>
         <li>
           <a href="/login" onClick={logout}>

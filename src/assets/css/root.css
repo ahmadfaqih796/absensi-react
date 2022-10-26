@@ -34,14 +34,14 @@ table tr td {
 	transition: all 0.5s;
 }
 table tr th {
-	background-color: var(--p-light);
+	background-color: var(--succes);
 }
 table tr:nth-child(even) td{
   background-color: #f2f2f2;
 }
 
 table tr:hover td{
-  background-color: var(--p-light);
+  background-color: var(--succes);
 }
 
 table tr td a {
@@ -49,13 +49,19 @@ table tr td a {
   font-size: 2rem;
 }
 table tr td #print {
-  color: var(--p-light);
+  color: var(--primary);
 }
 table tr td #edit {
+  color: var(--primary);
+}
+table tr td #edit:hover {
   color: yellow;
 }
 table tr td #delete {
-  color: red;
+  color: var(--primary);
+}
+table tr td #delete:hover {
+  color: rgba(255, 0, 0, 0.442);
 }
 legend {
   text-align: center;
@@ -69,7 +75,7 @@ legend {
   background-color: var(--surface);
   display: block;
   border-radius: 1rem;
-  margin: 3rem auto;
+  margin: 1rem auto;
   padding: 1rem;
   overflow-x: auto;
 }
@@ -81,7 +87,7 @@ button {
 	display: block;
 	margin: 1rem auto;
 	padding: 0.5rem 1rem;
-	background-color: var(--p-dark);
+	background-color: var(--p-light);
 	border: 2px solid var(--text-color-primary);
 	border-radius: 0.5rem;
 	color: black;
@@ -101,7 +107,7 @@ h1 {
 	bottom: 50px;
 	right: 50px;
 	background-color: var(--p-light);
-	color: var(--text-color-primary);
+	color: var(--text-color);
 	border: 2px solid var(--text-color-primary);
 	text-decoration: none;
 	padding: 0.5rem 1.7rem 1rem 1.7rem;

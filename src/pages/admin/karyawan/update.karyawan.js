@@ -38,7 +38,7 @@ const UpdateKaryawan = () => {
     <>
       <Navbar />
       <main className="konten">
-        <legend>Update</legend>
+        <legend>Update Karyawan</legend>
         <a href="/admin/karyawan" className="tambah">&#60;</a>
         <form className="karyawan">
           <div className="grup">
@@ -111,7 +111,6 @@ const UpdateKaryawan = () => {
           <button onClick={(e) => handleEditKaryawan(params.nik, karyawan, e)}>
             Update
           </button>
-        <p>{JSON.stringify(karyawan)}</p>
       </main>
     </>
   );

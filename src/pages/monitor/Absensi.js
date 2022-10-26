@@ -7,22 +7,6 @@ import {
 } from "../../providers/absensi.provider";
 
 const Absensi = () => {
-  // const videoRef = useRef(null);
-
-  // const getVideo = () => {
-  //   navigator.mediaDevices
-  //     .getUserMedia({
-  //       video: { width: 1920, height: 1080 },
-  //     })
-  //     .then((stream) => {
-  //       let video = videoRef.current;
-  //       video.srcObject = stream;
-  //       video.play();
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
 
   const navigate = useNavigate();
   const [nik, setNik] = useState("");
@@ -67,7 +51,6 @@ const Absensi = () => {
           />
           <input
             type="submit"
-            value={"Masuk"}
             onClick={(e) => handleTambahAbsensiMasuk({ nik: nik }, e)}
           />
         </form>
@@ -75,7 +58,6 @@ const Absensi = () => {
           <input
             type="text"
             name="nik"
-            value={nik}
             onChange={(e) => setNik(e.target.value)}
           />
           <input

@@ -12,6 +12,8 @@ import CreateLaporanKaryawan from "./pages/karyawan/create.laporan";
 import BerandaSpv from "./pages/spv/beranda.spv";
 import BerandaAdmin from "./pages/admin/Beranda";
 import DataLaporanAdmin from "./pages/admin/laporan/data.laporan";
+import DataLaporanSPV from "./pages/spv/laporan.spv";
+import DataAbsensi from "./pages/admin/absensi/data.absensi";
 const Protected = () => {
   const lokal = {
     token: localStorage.getItem("token"),
@@ -32,6 +34,7 @@ function App() {
       <Routes>
         <Route path="/admin" element={<Protected />}>
           <Route index element={<BerandaAdmin />} />
+          <Route path="/admin/absensi" element={<DataAbsensi />} />
           <Route path="/admin/karyawan" element={<DataKaryawan />} />
           <Route path="/admin/karyawan/tambah" element={<CreateKaryawan />} />
           <Route
@@ -59,6 +62,7 @@ function App() {
         {/* spv */}
         <Route path="/spv" element={<Protected />}>
           <Route index element={<BerandaSpv />} />
+					<Route path="/spv/laporan" element={<DataLaporanSPV />}/>
         </Route>
         <Route path="/" element={<LoginAdmin />} />
         <Route path="/login" element={<LoginAdmin />} />

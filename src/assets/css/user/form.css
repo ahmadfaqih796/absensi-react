@@ -15,9 +15,9 @@
 .karyawan .grup select {
 	padding: 0.5rem;
 	margin-top: 0.3rem;
-	border-radius: 1rem;
+	border-radius: 5px;
 	border: 2px solid var(--text-color-primary);
 }
 .karyawan .grup label {
-	margin: 0 0 0 10px;
+	margin: 0 0 0 2px;
 }
