@@ -59,6 +59,7 @@ table tr td #edit:hover {
 }
 table tr td #delete {
   color: var(--primary);
+	opacity: 0.6;
 }
 table tr td #delete:hover {
   color: rgba(255, 0, 0, 0.442);

@@ -1,11 +1,12 @@
 .statik {
 	justify-content: space-around;
 	display: flex;
+	flex-wrap: wrap;
 	margin: 1rem;
 	text-align: center;
 }
 .statik article {
-	padding: 1rem;
+	padding: 2rem;
 }
 .statik i{
 	font-size: 6rem;

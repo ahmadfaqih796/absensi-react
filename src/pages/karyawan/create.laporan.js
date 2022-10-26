@@ -5,11 +5,11 @@ import Navbar from "../../components/Navbar";
 import { createLaporan } from "../../providers/laporan.provider";
 
 const defaultLaporan = {
-  tugas: "isi",
-  klien: "isi",
-  jamMulai: "isi",
-  jamAkhir: "isi",
-  keterangan: "isi",
+  tugas: "",
+  klien: "",
+  jamMulai: "",
+  jamAkhir: "",
+  keterangan: "",
 };
 const CreateLaporanKaryawan = () => {
   const navigate = useNavigate();
@@ -23,14 +23,14 @@ const CreateLaporanKaryawan = () => {
     createLaporan(laporan, e).then((response) => {
       alert("data berhasil ditambah");
     });
-    navigate("/karyawan");
+    navigate("/admin/laporan");
   };
   return (
     <>
       <Navbar />
       <main className="konten">
         <legend>Create Laporan</legend>
-        <a href="/karyawan" className="tambah">
+        <a href="/admin/laporan" className="tambah">
           &#60;
         </a>
         <form className="karyawan">
@@ -56,7 +56,7 @@ const CreateLaporanKaryawan = () => {
           <div className="grup">
             <label htmlFor="jamMulai">Jam Mulai</label>
             <input
-              type="text"
+              type="time"
               name="jamMulai"
               value={laporan.jamMulai}
               onChange={handleLaporan}
@@ -66,7 +66,7 @@ const CreateLaporanKaryawan = () => {
 					<div className="grup">
             <label htmlFor="jamAkhir">Jam Akhir</label>
             <input
-              type="text"
+              type="time"
               name="jamAkhir"
               value={laporan.jamAkhir}
               onChange={handleLaporan}

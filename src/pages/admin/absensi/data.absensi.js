@@ -1,9 +1,5 @@
 import Navbar from "../../../components/Navbar";
 import { useEffect, useState } from "react";
-import {
-  deleteKaryawan,
-  getAllKaryawan,
-} from "../../../providers/admin.provider";
 import { getAllAbsensi } from "../../../providers/absensi.provider";
 
 const DataAbsensi = () => {
