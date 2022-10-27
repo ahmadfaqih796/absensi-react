@@ -64,7 +64,7 @@ function App() {
         {/* spv */}
         <Route path="/spv" element={<Protected />}>
           <Route index element={<BerandaSpv />} />
-					<Route path="/spv/laporan" element={<DataLaporanSPV />}/>
+          <Route path="/spv/laporan" element={<DataLaporanSPV />} />
         </Route>
         <Route path="/" element={<LoginAdmin />} />
         <Route path="/login" element={<LoginAdmin />} />

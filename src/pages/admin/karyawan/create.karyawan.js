@@ -11,6 +11,7 @@ const defaultKaryawan = {
   gender: "L",
   departemen: "IT",
   isAdmin: false,
+  isSPV: false,
   phone: "091212",
   alamat: "jl.kesasar",
 };
@@ -34,7 +35,9 @@ const CreateKaryawan = () => {
       <Navbar />
       <main className="konten">
         <legend>Create</legend>
-				<a href="/admin/karyawan" className="tambah">&#60;</a>
+        <a href="/admin/karyawan" className="tambah">
+          &#60;
+        </a>
         <form className="karyawan">
           <div className="grup">
             <label htmlFor="username">Username</label>
@@ -63,6 +66,18 @@ const CreateKaryawan = () => {
             >
               <option value="L">Laki-laki</option>
               <option value="P">Perempuan</option>
+            </select>
+          </div>
+
+          <div className="grup">
+            <label htmlFor="isSPV">Posisi</label>
+            <select
+              name="isSPV"
+              value={karyawan.isSPV}
+              onChange={handleKaryawan}
+            >
+              <option value={false}>Karyawan</option>
+              <option value={true}>SPV</option>
             </select>
           </div>
 

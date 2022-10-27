@@ -11,9 +11,10 @@ const DataLaporanAdmin = () => {
   const navigate = useNavigate();
   const [laporan, setLaporan] = useState([]);
   const dateTime = new Date();
+  const [tanggal, setTanggal] = useState(moment(dateTime).format("YYYY-MM-DD"));
   const halaman = 1;
-  const hariIni = moment(dateTime).format("DD/MM/YYYY");
-  const tanggal = moment(dateTime).format("YYYY-MM-DD");
+  // const hariIni = moment(dateTime).format("DD/MM/YYYY");
+  // const tanggal = moment(dateTime).format("YYYY-MM-DD");
 
   const handleUpdateLaporan = (nik, kodeLaporan, e) => {
     updateStatusLaporan(nik, kodeLaporan, e).then((response) => {
@@ -43,10 +44,17 @@ const DataLaporanAdmin = () => {
       <Navbar />
       <main className="konten">
         <legend>Laporan</legend>
-        <h1>{hariIni}</h1>
         <a href="/admin/laporan/tambah" className="tambah">
           +
         </a>
+        <form className="search">
+          <input
+            type="text"
+            name="tanggal"
+            value={tanggal}
+            onChange={(e) => setTanggal(e.target.value)}
+          />
+        </form>
         <table>
           <thead>
             <tr>
@@ -74,7 +82,10 @@ const DataLaporanAdmin = () => {
                 <td>{data.jamAkhir}</td>
                 <td>
                   {data.status ? (
-                    <i style={{ color: "green" }} className="fa-solid fa-check"></i>
+                    <i
+                      style={{ color: "green" }}
+                      className="fa-solid fa-check"
+                    ></i>
                   ) : (
                     <a
                       style={{ fontSize: "20px", color: "red" }}

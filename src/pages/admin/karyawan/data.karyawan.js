@@ -5,7 +5,27 @@ import {
   getAllKaryawan,
 } from "../../../providers/admin.provider";
 
+const Posisi = ({spv, admin}) => {
+	if (admin === true && spv === true) {
+    return (
+      // admin
+      <p>Admin</p>
+    );
+  } else if (admin === false && spv === true) {
+    return (
+      // spv
+      <p>SPV</p>
+    );
+  } else {
+    return (
+      // karyawan
+      <p>Karyawan</p>
+    );
+  }
+}
+
 const DataKaryawan = () => {
+
   const [karyawan, setKaryawan] = useState([]);
   const [halaman, setHalaman] = useState(1);
 
@@ -61,6 +81,7 @@ const DataKaryawan = () => {
               <th rowSpan={2}>NIK</th>
               <th rowSpan={2}>Username</th>
               <th rowSpan={2}>Nama</th>
+              <th rowSpan={2}>Posisi</th>
               <th rowSpan={2}>Departemen</th>
               <th rowSpan={2}>Gender</th>
               <th rowSpan={2}>Status</th>
@@ -79,6 +100,7 @@ const DataKaryawan = () => {
                 <td>{data.nik}</td>
                 <td>{data.username}</td>
                 <td>{data.name}</td>
+                <td><Posisi spv={data.isSPV} admin={data.isAdmin}/></td>
 								<td>{data.departemen}</td>
                 <td>{data.gender}</td>
                 <td>{data.isActive ? "Aktif" : "Tidak Aktif"}</td>
