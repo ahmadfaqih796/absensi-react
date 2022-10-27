@@ -1,0 +1,44 @@
+
+h2, h4 {
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    top : 100px;
+}
+
+
+.gallery{
+    background-color:var(--primary-variant) ;
+    text-align: left ;
+    width: 500px;
+    border: 100px;
+    padding: 10px;
+    border-radius: 50px ; 
+    display: flex;
+    font-size: 14px;
+    margin: 50px;
+  
+ }
+
+.text{
+    text-align: left;
+ }
+.div.gallery {
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 180px;
+  }
+  
+  div.gallery:hover {
+    border: 1px solid #777;
+  }
+  
+  div.gallery img {
+    border-radius: 50%;
+
+  }
+  
+  div.desc {
+    padding: 15px;
+    text-align: center;
+  }

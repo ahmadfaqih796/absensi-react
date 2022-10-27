@@ -4,7 +4,7 @@ import Navbar from "../../components/Navbar";
 const BerandaAdmin = () => {
   return (
     <>
-      <Navbar />
+      <Navbar/>
       <main className="konten">
         <legend>Home</legend>
         <section className="statik">

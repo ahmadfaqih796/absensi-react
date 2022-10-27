@@ -14,6 +14,8 @@ import BerandaAdmin from "./pages/admin/Beranda";
 import DataLaporanAdmin from "./pages/admin/laporan/data.laporan";
 import DataLaporanSPV from "./pages/spv/laporan.spv";
 import DataAbsensi from "./pages/admin/absensi/data.absensi";
+import About from "./pages/About";
+
 const Protected = () => {
   const lokal = {
     token: localStorage.getItem("token"),
@@ -67,6 +69,7 @@ function App() {
         <Route path="/" element={<LoginAdmin />} />
         <Route path="/login" element={<LoginAdmin />} />
         <Route path="/absensi" element={<Absensi />} />
+        <Route path="/about" element={<About />} />
       </Routes>
     </BrowserRouter>
   );
