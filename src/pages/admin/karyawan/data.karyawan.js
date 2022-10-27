@@ -61,6 +61,7 @@ const DataKaryawan = () => {
               <th rowSpan={2}>NIK</th>
               <th rowSpan={2}>Username</th>
               <th rowSpan={2}>Nama</th>
+              <th rowSpan={2}>Departemen</th>
               <th rowSpan={2}>Gender</th>
               <th rowSpan={2}>Status</th>
               <th colSpan={3}>Aksi</th>
@@ -78,6 +79,7 @@ const DataKaryawan = () => {
                 <td>{data.nik}</td>
                 <td>{data.username}</td>
                 <td>{data.name}</td>
+								<td>{data.departemen}</td>
                 <td>{data.gender}</td>
                 <td>{data.isActive ? "Aktif" : "Tidak Aktif"}</td>
                 <td>

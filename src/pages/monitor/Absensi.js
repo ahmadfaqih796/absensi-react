@@ -12,7 +12,7 @@ const Absensi = () => {
   const [nik, setNik] = useState("");
   const [absensi, setAbsensi] = useState([]);
   const halaman = 1;
-  const tanggal = "2022-10-25";
+  const tanggal = "2022-10-26";
 
   useEffect(() => {
     getAllAbsensi(halaman, tanggal)

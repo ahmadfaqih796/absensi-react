@@ -19,3 +19,19 @@ export const createLaporan = (laporan) => {
       .catch((err) => reject(err));
   });
 };
+export const updateStatusLaporan = (nik, kodeLaporan) => {
+  let payload = {
+    status: true,
+    tugas: "revisi",
+  };
+  return new Promise((resolve, reject) => {
+    axios
+      .put(
+        BASE_URL + `/lapor/user/${nik}/laporan/${kodeLaporan}`,
+        payload,
+        Authorized
+      )
+      .then((res) => resolve(res))
+      .catch((err) => reject(err));
+  });
+};
