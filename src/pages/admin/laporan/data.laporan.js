@@ -13,13 +13,13 @@ const DataLaporanAdmin = () => {
   const dateTime = new Date();
   const [tanggal, setTanggal] = useState(moment(dateTime).format("YYYY-MM-DD"));
   const halaman = 1;
-  // const hariIni = moment(dateTime).format("DD/MM/YYYY");
-  // const tanggal = moment(dateTime).format("YYYY-MM-DD");
 
   const handleUpdateLaporan = (nik, kodeLaporan, e) => {
     updateStatusLaporan(nik, kodeLaporan, e).then((response) => {
-      alert("data berhasil diupdate");
+      e.preventDefault();
+      alert("laporan berhasil ditambah")
       console.log(response.data.data);
+			setLaporan(response.data.data);
     });
     navigate("/admin/laporan");
   };
@@ -44,9 +44,6 @@ const DataLaporanAdmin = () => {
       <Navbar />
       <main className="konten">
         <legend>Laporan</legend>
-        <a href="/admin/laporan/tambah" className="tambah">
-          +
-        </a>
         <form className="search">
           <input
             type="text"
@@ -95,7 +92,7 @@ const DataLaporanAdmin = () => {
                         handleUpdateLaporan(data.nik, data.kodeLaporan, e)
                       }
                     >
-                      <i class="fa-solid fa-arrows-rotate"></i>
+                      <i className="fa-solid fa-arrows-rotate"></i>
                     </a>
                   )}
                 </td>

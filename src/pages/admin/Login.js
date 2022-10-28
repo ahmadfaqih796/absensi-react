@@ -27,7 +27,7 @@ function LoginAdmin() {
           navigate(`/karyawan/${data.nik}`);
         }
       })
-      .catch((err) => alert(err.message));
+      .catch((err) => alert(err.response.data.Message));
   };
   return (
     <main className="tampilan-login">

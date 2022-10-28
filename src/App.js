@@ -14,8 +14,8 @@ import BerandaAdmin from "./pages/admin/Beranda";
 import DataLaporanAdmin from "./pages/admin/laporan/data.laporan";
 import DataLaporanSPV from "./pages/spv/laporan.spv";
 import DataAbsensi from "./pages/admin/absensi/data.absensi";
-import About from "./pages/About";
 import LaporanKaryawan from "./pages/karyawan/all.laporan";
+import About from "./pages/monitor/About";
 
 const Protected = () => {
   const lokal = {
@@ -61,10 +61,7 @@ function App() {
             path="/karyawan/laporan/:nik/create"
             element={<CreateLaporanKaryawan />}
           />
-					<Route
-            path="/karyawan/laporan/:nik"
-            element={<LaporanKaryawan />}
-          />
+          <Route path="/karyawan/laporan/:nik" element={<LaporanKaryawan />} />
         </Route>
         {/* spv */}
         <Route path="/spv" element={<Protected />}>

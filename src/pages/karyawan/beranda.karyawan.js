@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import { getDetailKaryawan } from "../../providers/admin.provider";
-import { getLaporanUser } from "../../providers/laporan.provider";
 import { Posisi } from "../admin/karyawan/data.karyawan";
 
 const BerandaKaryawan = () => {
@@ -10,11 +9,13 @@ const BerandaKaryawan = () => {
   const [karyawan, setKaryawan] = useState("");
   console.log(params.nik);
   useEffect(() => {
-    getDetailKaryawan(params.nik).then((res) => setKaryawan(res.data.data));
+    getDetailKaryawan(params.nik).then((response) =>
+      setKaryawan(response.data.data)
+    );
   }, [params.nik]);
   return (
     <>
-      <Navbar nik={karyawan.nik}/>
+      <Navbar nik={karyawan.nik} />
       <main className="konten">
         <legend>
           <Posisi spv={karyawan.isSPV} admin={karyawan.isAdmin} />

@@ -79,7 +79,7 @@ const DataLaporanSPV = () => {
                         handleUpdateLaporan(data.nik, data.kodeLaporan, e)
                       }
                     >
-                      <i class="fa-solid fa-arrows-rotate"></i>
+                      <i className="fa-solid fa-arrows-rotate"></i>
                     </a>
                   )}
                 </td>

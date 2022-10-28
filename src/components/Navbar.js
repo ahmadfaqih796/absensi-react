@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "../assets/css/navigasi.css";
 import absensi from "../assets/image/logo-absensi.png";
 import { useState } from "react";
@@ -67,6 +67,8 @@ const MenuNavbar = ({ admin, spv, logout, nik }) => {
 };
 
 const Navbar = ({nik}) => {
+	const params = useParams()
+	console.log(params.nik)
   const navigate = useNavigate();
   const [isNavExpanded, setIsNavExpanded] = useState(false);
 
@@ -110,7 +112,7 @@ const Navbar = ({nik}) => {
           isNavExpanded ? "navigation-menu expanded" : "navigation-menu"
         }
       >
-        <MenuNavbar admin={admin} spv={spv} logout={handleLogout} nik={nik}/>
+        <MenuNavbar admin={admin} spv={spv} logout={handleLogout} nik={params.nik}/>
       </div>
     </nav>
   );

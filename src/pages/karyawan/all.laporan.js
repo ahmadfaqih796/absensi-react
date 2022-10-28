@@ -72,12 +72,12 @@ const LaporanKaryawan = () => {
                       className="fa-solid fa-check"
                     ></i>
                   ) : (
-                    <i class="fa-solid fa-arrows-rotate"></i>
+                    <i className="fa-solid fa-arrows-rotate"></i>
                   )}
                 </td>
               </tr>
             ))}
-          </tbody>
+				</tbody>
         </table>
       </main>
     </>
