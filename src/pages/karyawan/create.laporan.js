@@ -23,7 +23,7 @@ const CreateLaporanKaryawan = () => {
     createLaporan(laporan, e).then((response) => {
       alert("data berhasil ditambah");
     });
-    navigate("/admin/laporan");
+    navigate("/karyawan/laporan");
   };
   return (
     <>

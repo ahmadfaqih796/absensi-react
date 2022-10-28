@@ -10,6 +10,16 @@ export const getAllLaporan = (halaman, tanggal) => {
   });
 };
 
+export const getLaporanUser = () => {
+	const halaman = 1
+  return new Promise((resolve, reject) => {
+    axios
+      .get(BASE_URL + `/lapor/user/20221009?page=1&tanggal=2022-10-28`, Authorized)
+      .then((res) => resolve(res))
+      .catch((err) => reject(err));
+  });
+};
+
 export const createLaporan = (laporan) => {
   let payload = { ...laporan };
   return new Promise((resolve, reject) => {

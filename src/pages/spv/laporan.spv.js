@@ -10,8 +10,6 @@ const DataLaporanSPV = () => {
   const dateTime = new Date();
   const halaman = 1;
 	const [tanggal, setTanggal] = useState(moment(dateTime).format("YYYY-MM-DD"));
-  // const hariIni = moment(dateTime).format("DD/MM/YYYY");
-  // const tanggal = moment(dateTime).format("YYYY-MM-DD");
 
   const handleUpdateLaporan = (nik, kodeLaporan, e) => {
     updateStatusLaporan(nik, kodeLaporan, e).then((response) => {
@@ -30,11 +28,6 @@ const DataLaporanSPV = () => {
         alert(err.message);
       });
   }, [halaman, tanggal]);
-  // const handleDelete = (nik, e) => {
-  //   deleteKaryawan(nik).then(() => {
-  //     alert("data berhasil dihapus");
-  //   });
-  // };
 
   return (
     <>

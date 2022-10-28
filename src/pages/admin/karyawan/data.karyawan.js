@@ -5,21 +5,21 @@ import {
   getAllKaryawan,
 } from "../../../providers/admin.provider";
 
-const Posisi = ({spv, admin}) => {
+export const Posisi = ({spv, admin}) => {
 	if (admin === true && spv === true) {
     return (
       // admin
-      <p>Admin</p>
+      "Admin"
     );
   } else if (admin === false && spv === true) {
     return (
       // spv
-      <p>SPV</p>
+      "SPV"
     );
   } else {
     return (
       // karyawan
-      <p>Karyawan</p>
+      "Karyawan"
     );
   }
 }

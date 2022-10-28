@@ -67,7 +67,7 @@ table tr td #delete:hover {
 }
 legend {
   text-align: center;
-  font-size: 5rem;
+  font-size: 4.5rem;
   margin: 0 0 1rem 0;
   color: var(--text-color-primary);
 }
@@ -79,6 +79,12 @@ legend {
   margin: 1rem auto;
   padding: 1rem;
   overflow-x: auto;
+}
+.search input {
+	padding: 0.5rem;
+	border-radius: 5px;
+	border: 2px solid var(--primary);
+	margin-left: 1rem;
 }
 .flex {
   display: flex;
@@ -126,6 +132,9 @@ h1 {
   video {
     width: 250px;
   }
+	legend {
+		font-size: 2.5rem;
+	}
   .konten {
     width: 85%;
   }
