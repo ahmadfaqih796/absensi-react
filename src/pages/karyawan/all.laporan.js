@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import { getLaporanUser } from "../../providers/laporan.provider";
 
 const LaporanKaryawan = () => {
-	
+  const params = useParams();
   const [laporan, setLaporan] = useState([]);
   const nik = "20221009";
   useEffect(() => {
@@ -18,14 +19,22 @@ const LaporanKaryawan = () => {
   }, [nik]);
   return (
     <>
-      <Navbar />
-      <h1>Hello Laporan</h1>
-      {laporan.map((data, index) => (
-        <ul key={index}>
-          <h1>{data.kodeLaporan}</h1>
-					<h1>{data.tugas}</h1>
-        </ul>
-      ))}
+      <Navbar nik={nik} />
+      <a
+        href={"/karyawan/laporan/" + params.nik + "/create"}
+        className="tambah"
+      >
+        +
+      </a>
+      <main className="konten">
+        <legend>Hello Laporan</legend>
+        {laporan.map((data, index) => (
+          <ul key={index}>
+            <h1>{data.kodeLaporan}</h1>
+            <h1>{data.tugas}</h1>
+          </ul>
+        ))}
+      </main>
     </>
   );
 };

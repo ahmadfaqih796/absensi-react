@@ -58,11 +58,11 @@ function App() {
         <Route path="/karyawan" element={<Protected />}>
           <Route path="/karyawan/:nik" element={<BerandaKaryawan />} />
           <Route
-            path="/karyawan/laporan/create"
+            path="/karyawan/laporan/:nik/create"
             element={<CreateLaporanKaryawan />}
           />
 					<Route
-            path="/karyawan/laporan/"
+            path="/karyawan/laporan/:nik"
             element={<LaporanKaryawan />}
           />
         </Route>

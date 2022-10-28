@@ -14,7 +14,7 @@ const BerandaKaryawan = () => {
   }, [params.nik]);
   return (
     <>
-      <Navbar />
+      <Navbar nik={karyawan.nik}/>
       <main className="konten">
         <legend>
           <Posisi spv={karyawan.isSPV} admin={karyawan.isAdmin} />

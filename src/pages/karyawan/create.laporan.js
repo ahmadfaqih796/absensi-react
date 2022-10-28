@@ -1,6 +1,6 @@
 import "../../assets/css/user/form.css";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import { createLaporan } from "../../providers/laporan.provider";
 
@@ -12,6 +12,7 @@ const defaultLaporan = {
   keterangan: "",
 };
 const CreateLaporanKaryawan = () => {
+	const params = useParams()
   const navigate = useNavigate();
   const [laporan, setLaporan] = useState(defaultLaporan);
   const handleLaporan = (e) => {
@@ -27,10 +28,10 @@ const CreateLaporanKaryawan = () => {
   };
   return (
     <>
-      <Navbar />
+      <Navbar nik={params.nik}/>
       <main className="konten">
         <legend>Create Laporan</legend>
-        <a href="/admin/laporan" className="tambah">
+        <a href={"/karyawan/laporan/" + params.nik} className="tambah">
           &#60;
         </a>
         <form className="karyawan">

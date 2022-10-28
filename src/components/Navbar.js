@@ -4,7 +4,7 @@ import "../assets/css/navigasi.css";
 import absensi from "../assets/image/logo-absensi.png";
 import { useState } from "react";
 
-const MenuNavbar = ({ admin, spv, logout }) => {
+const MenuNavbar = ({ admin, spv, logout, nik }) => {
   if (admin === "true" && spv === "true") {
     return (
       // admin
@@ -50,10 +50,11 @@ const MenuNavbar = ({ admin, spv, logout }) => {
       // karyawan
       <ul>
         <li>
-          <a href="/karyawan">Home</a>
+          <a href={"/karyawan/" + nik}>Home</a>
         </li>
         <li>
-          <a href="/karyawan/laporan/create">Laporan</a>
+					{/* "/karyawan/laporan/create" */}
+          <a href={"/karyawan/laporan/" + nik}>Laporan</a>
         </li>
         <li>
           <a href="/login" onClick={logout}>
@@ -65,7 +66,7 @@ const MenuNavbar = ({ admin, spv, logout }) => {
   }
 };
 
-const Navbar = () => {
+const Navbar = ({nik}) => {
   const navigate = useNavigate();
   const [isNavExpanded, setIsNavExpanded] = useState(false);
 
@@ -109,7 +110,7 @@ const Navbar = () => {
           isNavExpanded ? "navigation-menu expanded" : "navigation-menu"
         }
       >
-        <MenuNavbar admin={admin} spv={spv} logout={handleLogout} />
+        <MenuNavbar admin={admin} spv={spv} logout={handleLogout} nik={nik}/>
       </div>
     </nav>
   );
