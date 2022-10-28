@@ -1,11 +1,13 @@
 import Navbar from "../../../components/Navbar";
 import { useEffect, useState } from "react";
 import { getAllAbsensi } from "../../../providers/absensi.provider";
+import moment from "moment/moment";
 
 const DataAbsensi = () => {
   const [absensi, setAbsensi] = useState([]);
   const halaman = 1;
-  const tanggal = "2022-10-26";
+	const dateTime = new Date()
+  const tanggal = moment(dateTime).format("YYYY-MM-DD");
 
   useEffect(() => {
     getAllAbsensi(halaman, tanggal)
@@ -15,7 +17,7 @@ const DataAbsensi = () => {
       .catch((err) => {
         alert(err.message);
       });
-  }, [halaman]);
+  }, [halaman, tanggal]);
   return (
     <>
       <Navbar />

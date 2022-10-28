@@ -1,3 +1,4 @@
+import moment from "moment/moment";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -12,7 +13,8 @@ const Absensi = () => {
   const [nik, setNik] = useState("");
   const [absensi, setAbsensi] = useState([]);
   const halaman = 1;
-  const tanggal = "2022-10-28";
+  const dateTime = new Date()
+  const tanggal = moment(dateTime).format("YYYY-MM-DD");
 
   useEffect(() => {
     getAllAbsensi(halaman, tanggal)
@@ -22,7 +24,7 @@ const Absensi = () => {
       .catch((err) => {
         alert(err.message);
       });
-  }, [halaman]);
+  }, [halaman, tanggal]);
 
   const handleTambahAbsensiMasuk = (absensi, e) => {
     createAbsensiMasuk(absensi, e).then((response) => {
@@ -48,11 +50,11 @@ const Absensi = () => {
             <input
               type="text"
               name="nik"
-              value={nik}
               onChange={(e) => setNik(e.target.value)}
             />
             <input
               type="submit"
+							value={"Masuk"}
               onClick={(e) => handleTambahAbsensiMasuk({ nik: nik }, e)}
             />
           </form>
