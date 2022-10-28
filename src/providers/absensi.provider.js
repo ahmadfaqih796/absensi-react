@@ -5,7 +5,7 @@ import { Authorized, BASE_URL } from "./helper.provider"
 export const getAllAbsensi = (halaman, tanggal) => {
   return new Promise((resolve, reject) => {
     axios
-      .get(BASE_URL + `/absen?page=${halaman}&tanggal=${tanggal}`)
+      .get(BASE_URL + `/absen?page=${halaman}&tanggal=${tanggal}`, Authorized)
       .then((res) => resolve(res))
       .catch((err) => reject(err));
   });

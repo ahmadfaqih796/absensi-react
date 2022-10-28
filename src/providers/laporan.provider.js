@@ -10,11 +10,13 @@ export const getAllLaporan = (halaman, tanggal) => {
   });
 };
 
-export const getLaporanUser = () => {
-	const halaman = 1
+export const getLaporanUser = (nik, halaman, tanggal) => {
   return new Promise((resolve, reject) => {
     axios
-      .get(BASE_URL + `/lapor/user/20221009?page=1&tanggal=2022-10-28`, Authorized)
+      .get(
+        BASE_URL + `/lapor/user/${nik}?page=${halaman}&tanggal=${tanggal}`,
+        Authorized
+      )
       .then((res) => resolve(res))
       .catch((err) => reject(err));
   });

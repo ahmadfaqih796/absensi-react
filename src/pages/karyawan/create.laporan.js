@@ -24,7 +24,7 @@ const CreateLaporanKaryawan = () => {
     createLaporan(laporan, e).then((response) => {
       alert("data berhasil ditambah");
     });
-    navigate("/karyawan/laporan");
+    navigate("/karyawan/laporan/" + params.nik);
   };
   return (
     <>
