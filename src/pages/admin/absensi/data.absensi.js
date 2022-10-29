@@ -1,11 +1,14 @@
 import Navbar from "../../../components/Navbar";
 import { useEffect, useState } from "react";
 import { getAllAbsensi } from "../../../providers/absensi.provider";
+import moment from "moment/moment";
+import CetakAbsensi from "./cetak.absensi";
 
 const DataAbsensi = () => {
   const [absensi, setAbsensi] = useState([]);
   const halaman = 1;
-  const tanggal = "2022-10-25";
+	const dateTime = new Date()
+	const [tanggal, setTanggal] = useState(moment(dateTime).format("YYYY-MM-DD"))
 
   useEffect(() => {
     getAllAbsensi(halaman, tanggal)
@@ -15,12 +18,21 @@ const DataAbsensi = () => {
       .catch((err) => {
         alert(err.message);
       });
-  }, [halaman]);
+  }, [halaman, tanggal]);
   return (
     <>
       <Navbar />
       <main className="konten">
         <legend>Data Absensi</legend>
+				<form className="search">
+          <input
+            type="text"
+            name="tanggal"
+            value={tanggal}
+            onChange={(e) => setTanggal(e.target.value)}
+          />
+					<CetakAbsensi absensi={absensi} tanggal={tanggal} />
+        </form>
         <table>
           <thead>
             <tr>

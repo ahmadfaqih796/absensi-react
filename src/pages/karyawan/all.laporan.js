@@ -1,40 +1,38 @@
-import { useEffect, useState } from "react";
 import moment from "moment/moment";
-import { getAllLaporan, updateStatusLaporan } from "../../providers/laporan.provider";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import Navbar from "../../components/Navbar";
-import { useNavigate } from "react-router-dom";
+import { getLaporanUser } from "../../providers/laporan.provider";
 
-const DataLaporanSPV = () => {
-  const navigate = useNavigate();
+const LaporanKaryawan = () => {
+  const params = useParams();
   const [laporan, setLaporan] = useState([]);
-  const dateTime = new Date();
+	const dateTime = new Date();
+  const [tanggal, setTanggal] = useState(moment(dateTime).format("YYYY-MM-DD"));
+  const nik = params.nik;
   const halaman = 1;
-	const [tanggal, setTanggal] = useState(moment(dateTime).format("YYYY-MM-DD"));
-
-  const handleUpdateLaporan = (nik, kodeLaporan, e) => {
-    updateStatusLaporan(nik, kodeLaporan, e).then((response) => {
-      alert("data berhasil diupdate");
-      console.log(response.data.data);
-    });
-    navigate("/spv/laporan");
-  };
-
   useEffect(() => {
-    getAllLaporan(halaman, tanggal)
+    getLaporanUser(nik, halaman, tanggal)
       .then((response) => {
         setLaporan(response.data.data);
+        console.log(response.data.data);
       })
       .catch((err) => {
         alert(err.message);
       });
-  }, [halaman, tanggal]);
-
+  }, [nik, halaman, tanggal]);
   return (
     <>
-      <Navbar />
+      <Navbar nik={nik} />
+      <a
+        href={"/karyawan/laporan/" + params.nik + "/create"}
+        className="tambah"
+      >
+        +
+      </a>
       <main className="konten">
         <legend>Laporan</legend>
-				<form className="search">
+        <form className="search">
           <input
             type="text"
             name="tanggal"
@@ -69,26 +67,20 @@ const DataLaporanSPV = () => {
                 <td>{data.jamAkhir}</td>
                 <td>
                   {data.status ? (
-                    <i style={{ color: "green" }} className="fa-solid fa-check"></i>
+                    <i
+                      style={{ color: "green" }}
+                      className="fa-solid fa-check"
+                    ></i>
                   ) : (
-                    <a
-                      style={{ fontSize: "20px", color: "red" }}
-                      href="/spv/laporan"
-                      id="delete"
-                      onClick={(e) =>
-                        handleUpdateLaporan(data.nik, data.kodeLaporan, e)
-                      }
-                    >
-                      <i className="fa-solid fa-arrows-rotate"></i>
-                    </a>
+                    <i className="fa-solid fa-arrows-rotate"></i>
                   )}
                 </td>
               </tr>
             ))}
-          </tbody>
+				</tbody>
         </table>
       </main>
     </>
   );
 };
-export default DataLaporanSPV;
+export default LaporanKaryawan;
