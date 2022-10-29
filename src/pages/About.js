@@ -3,9 +3,13 @@ import yaqub from "../assets/image/yaqub.jpeg"
 import faqih from "../assets/image/faqih.jpeg"
 import samuel from "../assets/image/samuel.jpeg"
 import indra from "../assets/image/indra.jpeg"
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const About = () => {
     return(   
+        <>
+        <Navbar/>
         <section>
           <h2 className="h2">ABOUT KELOMPOK 4</h2>
           <h4 className="h4">TUGAS AKHIR - QIHTOON</h4>
@@ -22,7 +26,6 @@ const About = () => {
               </div>
             </div>
           </div>
-
           <div className="g2">
             <div className="gallery">
               <a target="_blank" href="faqih.jpeg">
@@ -35,7 +38,6 @@ const About = () => {
               </div>
             </div>
           </div>
-          
           <div className="g3">
             <div className="gallery">
               <a target="_blank" href="samuel.jpeg">
@@ -48,7 +50,6 @@ const About = () => {
               </div>
             </div>
           </div>
-
           <div className="g4">
             <div className="gallery">
               <a target="_blank" href="indra.jpeg">
@@ -61,21 +62,9 @@ const About = () => {
               </div>
             </div>
           </div>
-            
-        
-            {/* <div className="gallery">
-              <a target="_blank" href="img_lights.jpg">
-                <img src={indra} alt="Northern Lights" width="200" height="200"/>
-              </a>
-              <div className="desc">Add a description of the image here</div>
-            </div>
-            <div className="gallery">
-              <a target="_blank" href="img_mountains.jpg">
-                <img src={samuel} alt="Mountains" width="200" height="200"/>
-              </a>
-              <div className="desc">Add a description of the image here</div>
-            </div> */}
       </section>
+      <Footer/>
+      </>
   )
 }
 export default About
