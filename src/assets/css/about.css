@@ -7,12 +7,12 @@ h2, h4 {
 
 
 .gallery{
-    background-color:var(--succes) ;
+    background-color:var(--primary-variant) ;
     text-align: left ;
     width: 500px;
     border: 100px;
     padding: 10px;
-    border-radius: 20px ; 
+    border-radius: 50px ; 
     display: flex;
     font-size: 14px;
     margin: 50px;
@@ -34,7 +34,7 @@ h2, h4 {
   }
   
   div.gallery img {
-    border-radius: 10%;
+    border-radius: 50%;
 
   }
   

@@ -3,12 +3,10 @@ import yaqub from "../assets/image/yaqub.jpeg"
 import faqih from "../assets/image/faqih.jpeg"
 import samuel from "../assets/image/samuel.jpeg"
 import indra from "../assets/image/indra.jpeg"
-import Navbar from "../../../components/Navbar";
 
 const About = () => {
     return(   
         <section>
-         
           <h2 className="h2">ABOUT KELOMPOK 4</h2>
           <h4 className="h4">TUGAS AKHIR - QIHTOON</h4>
 
@@ -63,7 +61,6 @@ const About = () => {
               </div>
             </div>
           </div>
-          <Footer/>
       </section>
   )
 }
