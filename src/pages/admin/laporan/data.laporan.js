@@ -6,6 +6,7 @@ import {
 } from "../../../providers/laporan.provider";
 import moment from "moment/moment";
 import { useNavigate } from "react-router-dom";
+import CetakLaporan from "./cetak.laporan";
 
 const DataLaporanAdmin = () => {
   const navigate = useNavigate();
@@ -51,6 +52,7 @@ const DataLaporanAdmin = () => {
             value={tanggal}
             onChange={(e) => setTanggal(e.target.value)}
           />
+					<CetakLaporan laporan={laporan} tanggal={tanggal} />
         </form>
         <table>
           <thead>

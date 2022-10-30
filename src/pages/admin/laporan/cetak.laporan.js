@@ -1,7 +1,7 @@
 import "../../../assets/css/user/cetak.css";
 import logo from "../../../assets/image/logo-absensi.png";
 
-const CetakAbsensi = ({ absensi, tanggal }) => {
+const CetakLaporan = ({ laporan, tanggal }) => {
   const Print = () => {
     //console.log('print');
     let printContents = document.getElementById("cetak").innerHTML;
@@ -24,36 +24,42 @@ const CetakAbsensi = ({ absensi, tanggal }) => {
           </article>
         </header>
         <hr />
-        <h1 className="judul">Karyawan</h1>
+        <h1 className="judul">Laporan {tanggal}</h1>
         <table>
-				<thead>
+          <thead>
             <tr>
               <th>No</th>
-              <th>Kode Absen</th>
+              <th>Kode</th>
               <th>NIK</th>
               <th>Nama</th>
-              <th>Jam Masuk</th>
-              <th>Jam Pulang</th>
+              <th>Klien</th>
+              <th>Tugas</th>
+              <th>Jam Mulai</th>
+              <th>Jam Akhir</th>
               <th>Status</th>
             </tr>
           </thead>
           <tbody>
-            {absensi.map((data, index) => (
+            {laporan.map((data, index) => (
               <tr id="data" key={index}>
                 <td>{index + 1}</td>
-                <td>{data.kodeAbsen}</td>
+                <td>{data.kodeLaporan}</td>
                 <td>{data.nik}</td>
                 <td>{data.name}</td>
-                <td>{data.jamMasuk}</td>
-                <td>{data.jamPulang}</td>
-                <td>{data.status ? "valid" : "belum valid"}</td>
+                <td>{data.klien}</td>
+                <td>{data.tugas}</td>
+                <td>{data.jamMulai}</td>
+                <td>{data.jamAkhir}</td>
+                <td>{data.status ? "valid" : "tidak valid"}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-      <button onClick={Print} className="tombol-cetak">cetak</button>
+      <button onClick={Print} className="tombol-cetak">
+        cetak
+      </button>
     </>
   );
 };
-export default CetakAbsensi;
+export default CetakLaporan;
