@@ -137,6 +137,12 @@ h1 {
   font-weight: 700;
   z-index: 2;
 }
+.authorized {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
 @font-face {
   font-family: Roboto;
   src: url(../font/Roboto-Regular.ttf);

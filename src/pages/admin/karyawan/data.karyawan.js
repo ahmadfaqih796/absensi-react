@@ -91,7 +91,7 @@ const DataKaryawan = () => {
   const list = [];
   for (let i = 1; i <= total; i++) {
     // list.push(<Pagination key={i} />);
-    list.push(<button onClick={(e) => halaman(i, e)}>{i}</button>);
+    list.push(<button key={i} onClick={(e) => halaman(i, e)}>{i}</button>);
   }
 
   return (

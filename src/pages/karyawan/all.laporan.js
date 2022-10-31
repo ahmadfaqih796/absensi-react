@@ -7,7 +7,7 @@ import { getLaporanUser } from "../../providers/laporan.provider";
 const LaporanKaryawan = () => {
   const params = useParams();
   const [laporan, setLaporan] = useState([]);
-	const dateTime = new Date();
+  const dateTime = new Date();
   const [tanggal, setTanggal] = useState(moment(dateTime).format("YYYY-MM-DD"));
   const nik = params.nik;
   const halaman = 1;
@@ -15,7 +15,6 @@ const LaporanKaryawan = () => {
     getLaporanUser(nik, halaman, tanggal)
       .then((response) => {
         setLaporan(response.data.data);
-        console.log(response.data.data);
       })
       .catch((err) => {
         alert(err.message);
@@ -77,7 +76,7 @@ const LaporanKaryawan = () => {
                 </td>
               </tr>
             ))}
-				</tbody>
+          </tbody>
         </table>
       </main>
     </>
