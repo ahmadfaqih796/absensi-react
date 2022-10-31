@@ -13,7 +13,7 @@ const DataLaporanSPV = () => {
 
   const handleUpdateLaporan = (nik, kodeLaporan, e) => {
     updateStatusLaporan(nik, kodeLaporan, e).then((response) => {
-      alert("data berhasil diupdate");
+      alert("status berhasil di setujui");
       console.log(response.data.data);
     });
     navigate("/spv/laporan");

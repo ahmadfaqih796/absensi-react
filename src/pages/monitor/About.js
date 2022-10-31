@@ -17,7 +17,7 @@ const About = () => {
         <div className="gallery">
           <img src={yaqub} alt="yaqub" />
           <div className="desc">
-            <h5 className="text"> Yacob Pratama </h5>
+            <h2 className="text">Yacob Pratama </h2>
             <p className="text">Email : yaqubhdn@gmail.com </p>
             <p className="text">Whatsapp : +62 877-2983-9645 </p>
           </div>
@@ -25,7 +25,7 @@ const About = () => {
         <div className="gallery">
           <img src={faqih} alt="faqih" />
           <div className="desc">
-            <h5 className="text"> Ahmad Faqih</h5>
+            <h2 className="text"> Ahmad Faqih Arifin</h2>
             <p className="text">Email : ahmadfaqih796@gmail.com </p>
             <p className="text">Whatsapp : +62 821-8277-1538 </p>
           </div>
@@ -33,7 +33,7 @@ const About = () => {
         <div className="gallery">
           <img src={samuel} alt="samuel" />
           <div className="desc">
-            <h5 className="text"> Samuel </h5>
+            <h2 className="text"> Samuel Susetia Davilantinov Nugraha </h2>
             <p className="text">Email : samuelsdavilantinovn@gmail.com </p>
             <p className="text">Whatsapp : +62 896-5705-5232 </p>
           </div>
@@ -41,13 +41,13 @@ const About = () => {
         <div className="gallery">
           <img src={indra} alt="indra" />
           <div className="desc">
-            <h5 className="text"> Indra Cj</h5>
+            <h2 className="text"> Indra Cahya Jati </h2>
             <p className="text">Email : indracjy@gmail.com </p>
             <p className="text">Whatsapp : +62 877-8457-3407 </p>
           </div>
         </div>
       </section>
-			<Footer />
+      <Footer />
     </>
   );
 };

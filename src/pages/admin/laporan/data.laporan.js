@@ -18,9 +18,9 @@ const DataLaporanAdmin = () => {
   const handleUpdateLaporan = (nik, kodeLaporan, e) => {
     updateStatusLaporan(nik, kodeLaporan, e).then((response) => {
       e.preventDefault();
-      alert("laporan berhasil ditambah")
+      alert("status berhasil di ubah");
       console.log(response.data.data);
-			setLaporan(response.data.data);
+      setLaporan(response.data.data);
     });
     navigate("/admin/laporan");
   };
@@ -52,7 +52,7 @@ const DataLaporanAdmin = () => {
             value={tanggal}
             onChange={(e) => setTanggal(e.target.value)}
           />
-					<CetakLaporan laporan={laporan} tanggal={tanggal} />
+          <CetakLaporan laporan={laporan} tanggal={tanggal} />
         </form>
         <table>
           <thead>

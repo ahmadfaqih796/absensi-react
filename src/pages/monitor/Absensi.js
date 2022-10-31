@@ -71,6 +71,7 @@ const Absensi = () => {
             />
           </form>
         </div>
+				<p>Jam masuk dimulai pada pukul 07:00 WIB dan jam pulang di mulai pukul 17:00 WIB</p>
         <table>
           <thead>
             <tr>

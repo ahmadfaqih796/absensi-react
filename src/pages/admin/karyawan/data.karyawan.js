@@ -161,11 +161,11 @@ const DataKaryawan = () => {
             style={{ display: "none" }}
             onClick={(e) => previous(mundur, e)}
           >
-            Mundur
+            Previous
           </button>
           {list}
           <button id="maju" onClick={(e) => next(maju, e)}>
-            Maju
+            Next
           </button>
         </div>
 
