@@ -97,6 +97,12 @@ legend {
   display: flex;
   justify-content: space-around;
 }
+.flex-pagination {
+	display: flex;
+	justify-content: center;
+	width: 250px;
+	margin: 0 auto;
+}
 button {
   display: block;
   margin: 1rem auto;
