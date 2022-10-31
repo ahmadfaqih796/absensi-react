@@ -53,11 +53,14 @@ const MenuNavbar = ({ admin, spv, logout, nik }) => {
       // karyawan
       <ul>
         <li>
-          <a href={"/karyawan/" + nik}>Home</a>
+          <a href="/karyawan/">Home</a>
         </li>
         <li>
 					{/* "/karyawan/laporan/create" */}
           <a href={"/karyawan/laporan/" + nik}>Laporan</a>
+        </li>
+				<li>
+          <a href={"/karyawan/detail/" + nik}>Akun</a>
         </li>
         <li>
           <a href="/login" onClick={logout}>

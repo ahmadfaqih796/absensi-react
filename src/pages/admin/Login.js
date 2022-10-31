@@ -23,9 +23,9 @@ function LoginAdmin() {
         if (admin === "true" && spv === "true") {
           navigate("/admin");
         } else if (admin === "false" && spv === "true") {
-          navigate(`/spv`);
+          navigate("/spv");
         } else {
-          navigate(`/karyawan/${data.nik}`);
+          navigate("/karyawan");
         }
       })
       .catch((err) => alert(err.response.data.Message));
