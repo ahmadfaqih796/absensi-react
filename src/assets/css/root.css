@@ -81,27 +81,31 @@ legend {
   overflow-x: auto;
 }
 .search {
-	display: flex;
+  display: flex;
 }
 .search input {
-	padding: 0.5rem;
-	margin: 1rem 0;
-	border-radius: 5px;
-	border: 2px solid var(--primary);
-	margin-left: 1rem;
+  padding: 0.5rem;
+  margin: 1rem 0;
+  border-radius: 5px;
+  border: 2px solid var(--primary);
+
+  margin-left: 1rem;
+}
+.search input[type="submit"] {
+  background-color: var(--succes);
 }
 .search .tombol-cetak {
-	margin: 1rem 0 1rem 1rem;
+  margin: 1rem 0 1rem 1rem;
 }
 .flex {
   display: flex;
   justify-content: space-around;
 }
 .flex-pagination {
-	display: flex;
-	justify-content: center;
-	width: 250px;
-	margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  width: 250px;
+  margin: 0 auto;
 }
 button {
   display: block;
@@ -138,10 +142,10 @@ h1 {
   z-index: 2;
 }
 .authorized {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 @font-face {
   font-family: Roboto;
@@ -151,9 +155,9 @@ h1 {
   video {
     width: 250px;
   }
-	legend {
-		font-size: 2.5rem;
-	}
+  legend {
+    font-size: 2.5rem;
+  }
   .konten {
     width: 85%;
   }
