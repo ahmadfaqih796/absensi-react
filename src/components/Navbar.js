@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../assets/css/navigasi.css";
 import absensi from "../assets/image/logo-absensi.png";
 import { useState } from "react";
@@ -38,6 +38,9 @@ const MenuNavbar = ({ admin, spv, logout, nik }) => {
         <li>
           <a href="/spv/laporan">Laporan</a>
         </li>
+				<li>
+          <a href={"/spv/detail/" + nik}>Akun</a>
+        </li>
         <li>
           <a href="/login" onClick={logout}>
             Logout
@@ -67,8 +70,7 @@ const MenuNavbar = ({ admin, spv, logout, nik }) => {
 };
 
 const Navbar = ({nik}) => {
-	const params = useParams()
-	console.log(params.nik)
+	const nikKaryawan = localStorage.getItem("nik");
   const navigate = useNavigate();
   const [isNavExpanded, setIsNavExpanded] = useState(false);
 
@@ -80,6 +82,7 @@ const Navbar = ({nik}) => {
     localStorage.removeItem("admin");
     localStorage.removeItem("spv");
     localStorage.removeItem("status");
+		localStorage.removeItem("nik")
     navigate("/login");
   };
 
@@ -112,7 +115,7 @@ const Navbar = ({nik}) => {
           isNavExpanded ? "navigation-menu expanded" : "navigation-menu"
         }
       >
-        <MenuNavbar admin={admin} spv={spv} logout={handleLogout} nik={params.nik}/>
+        <MenuNavbar admin={admin} spv={spv} logout={handleLogout} nik={nikKaryawan}/>
       </div>
     </nav>
   );

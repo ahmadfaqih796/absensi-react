@@ -17,12 +17,13 @@ function LoginAdmin() {
         localStorage.setItem("status", data.isActive);
         localStorage.setItem("admin", data.isAdmin);
         localStorage.setItem("spv", data.isSPV);
+        localStorage.setItem("nik", data.nik);
         const admin = localStorage.getItem("admin", data.isAdmin);
         const spv = localStorage.getItem("spv", data.isSPV);
         if (admin === "true" && spv === "true") {
           navigate("/admin");
         } else if (admin === "false" && spv === "true") {
-          navigate(`/spv/${data.nik}`);
+          navigate(`/spv`);
         } else {
           navigate(`/karyawan/${data.nik}`);
         }
