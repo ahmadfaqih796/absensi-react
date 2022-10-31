@@ -25,7 +25,7 @@ const CetakKaryawan = ({ karyawan }) => {
         </header>
         <hr />
         <h1 className="judul">Karyawan</h1>
-        <table>
+        <table className="table-karyawan">
           <thead></thead>
           <tbody>
             <tr>

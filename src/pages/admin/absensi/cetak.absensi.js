@@ -24,7 +24,7 @@ const CetakAbsensi = ({ absensi, tanggal }) => {
           </article>
         </header>
         <hr />
-        <h1 className="judul">Karyawan</h1>
+        <h1 className="judul">Absensi {tanggal}</h1>
         <table>
 				<thead>
             <tr>

@@ -29,9 +29,14 @@
 		margin: 0;
 		text-align: left;
 	}
+	.table-karyawan tr th,
+	.table-karyawan tr td {
+		border: 0;
+		text-align: left;
+	}
 	table tr th,
 	table tr td {
 		border: 1px solid black;
-		text-align: left;
+		text-align: center;
 	}
 }
