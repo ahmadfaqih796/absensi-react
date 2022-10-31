@@ -84,8 +84,7 @@ const CreateLaporanKaryawan = () => {
             />
           </div>
         </form>
-        <button onClick={(e) => handleTambahLaporan(laporan, e)}>Tambah</button>
-        <p>{JSON.stringify(laporan)}</p>
+        <button onClick={(e) => handleTambahLaporan(laporan, e)}>Kirim</button>
       </main>
     </>
   );
