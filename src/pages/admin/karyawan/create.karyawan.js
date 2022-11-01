@@ -10,10 +10,11 @@ const defaultKaryawan = {
   name: "",
   gender: "L",
   departemen: "IT",
+  qrcode: "",
   isAdmin: false,
   isSPV: false,
-  phone: "091212",
-  alamat: "jl.kesasar",
+  phone: "",
+  alamat: "",
 };
 const CreateKaryawan = () => {
   const navigate = useNavigate();

@@ -14,8 +14,11 @@
 body {
   background-color: var(--surface);
 }
-video {
-  width: 500px;
+.center {
+	text-align: center;
+}
+.video {
+  width: 200px;
   display: block;
   margin: 2.5rem auto;
   border-radius: 1rem;

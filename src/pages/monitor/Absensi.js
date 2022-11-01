@@ -7,13 +7,16 @@ import {
   getAllAbsensi,
 } from "../../providers/absensi.provider";
 import NavigasiMonitor from "./Navigasi";
+import QRcode from "qrcode";
+import { QrReader } from "react-qr-reader";
 
 const Absensi = () => {
   const navigate = useNavigate();
   const [nik, setNik] = useState("");
+  const [scanResultWebCam, setScanResultWebCam] = useState("");
   const [absensi, setAbsensi] = useState([]);
   const halaman = 1;
-  const dateTime = new Date()
+  const dateTime = new Date();
   const tanggal = moment(dateTime).format("YYYY-MM-DD");
 
   useEffect(() => {
@@ -25,6 +28,13 @@ const Absensi = () => {
         alert(err.message);
       });
   }, [halaman, tanggal]);
+
+  const generateQRcode = async () => {
+    try {
+      const res = await QRcode.toDataURL("test qrcode generation");
+      console.log(res);
+    } catch (error) {}
+  };
 
   const handleTambahAbsensiMasuk = (absensi, e) => {
     createAbsensiMasuk(absensi, e).then((response) => {
@@ -42,10 +52,22 @@ const Absensi = () => {
 
   return (
     <>
-			<NavigasiMonitor />
+      <NavigasiMonitor />
       <main className="konten">
         <legend>Silahkan Absensi</legend>
         <div className="flex">
+          <form className="search">
+            <input
+              type="text"
+              name="qrcode"
+              onChange={(e) => setNik(e.target.value)}
+            />
+            <input
+              type="submit"
+              value={"qrkode"}
+              onClick={() => generateQRcode()}
+            />
+          </form>
           <form className="search">
             <input
               type="text"
@@ -54,7 +76,7 @@ const Absensi = () => {
             />
             <input
               type="submit"
-							value={"Masuk"}
+              value={"Masuk"}
               onClick={(e) => handleTambahAbsensiMasuk({ nik: nik }, e)}
             />
           </form>
@@ -71,7 +93,10 @@ const Absensi = () => {
             />
           </form>
         </div>
-				<p>Jam masuk dimulai pada pukul 07:00 WIB dan jam pulang di mulai pukul 17:00 WIB</p>
+        <p className="center">
+          Jam masuk dimulai pada pukul 07:00 WIB dan jam pulang di mulai pukul
+          17:00 WIB
+        </p>
         <table>
           <thead>
             <tr>
@@ -98,6 +123,18 @@ const Absensi = () => {
             ))}
           </tbody>
         </table>
+        <QrReader
+          className="video"
+          onResult={(result, error) => {
+            if (!!result) {
+              setScanResultWebCam(result?.text);
+            }
+            if (!!error) {
+              console.info(error);
+            }
+          }}
+        />
+        <h3>Scanned Code: {scanResultWebCam}</h3>
       </main>
     </>
   );

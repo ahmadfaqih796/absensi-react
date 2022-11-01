@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Navbar from "../../../components/Navbar";
-import { getDetailKaryawan, updateKaryawan } from "../../../providers/admin.provider";
-
+import {
+  getDetailKaryawan,
+  updateKaryawan,
+} from "../../../providers/admin.provider";
+import QRcode from "qrcode";
 const defaultKaryawan = {
   username: "",
   password: "",
@@ -11,22 +14,34 @@ const defaultKaryawan = {
   departemen: "",
   phone: "",
   alamat: "",
+  qrcode: "",
+  isActive: true,
 };
 const UpdateKaryawan = () => {
   const params = useParams();
   const navigate = useNavigate();
   const [karyawan, setKaryawan] = useState(defaultKaryawan);
+  const [barcode, setBarcode] = useState("");
 
-	useEffect(() => {
-		getDetailKaryawan(params.nik).then((res) => {
-			setKaryawan(res.data.data)
-		})
-	}, [params.nik]);
+  useEffect(() => {
+    getDetailKaryawan(params.nik).then((res) => {
+      setKaryawan(res.data.data);
+    });
+  }, [params.nik]);
 
   const handleKaryawan = (e) => {
     const name = e.target.name;
     const value = e.target.value;
     setKaryawan((values) => ({ ...values, [name]: value }));
+  };
+  const generateQRcode = async () => {
+    try {
+      const res = await QRcode.toDataURL(karyawan.qrcode);
+			setBarcode(res)
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
   };
   const handleEditKaryawan = (nik, karyawan, e) => {
     updateKaryawan(nik, karyawan, e).then((response) => {
@@ -39,8 +54,19 @@ const UpdateKaryawan = () => {
       <Navbar />
       <main className="konten">
         <legend>Update Karyawan</legend>
-        <a href="/admin/karyawan" className="tambah">&#60;</a>
+        <a href="/admin/karyawan" className="tambah">
+          &#60;
+        </a>
         <form className="karyawan">
+          <div className="grup">
+            <label htmlFor="qrcode">Barcode</label>
+            <input
+              type="text"
+              name="qrcode"
+              value={karyawan.qrcode}
+              onChange={handleKaryawan}
+            />
+          </div>
           <div className="grup">
             <label htmlFor="username">Username</label>
             <input
@@ -50,13 +76,9 @@ const UpdateKaryawan = () => {
               onChange={handleKaryawan}
             />
           </div>
-					<div className="grup">
+          <div className="grup">
             <label htmlFor="password">Password</label>
-            <input
-              type="text"
-              name="password"
-              onChange={handleKaryawan}
-            />
+            <input type="text" name="password" onChange={handleKaryawan} />
           </div>
           <div className="grup">
             <label htmlFor="name">Nama</label>
@@ -99,6 +121,17 @@ const UpdateKaryawan = () => {
             />
           </div>
           <div className="grup">
+            <label htmlFor="isActive">Status keaktifan</label>
+            <select
+              name="isActive"
+              value={karyawan.isActive}
+              onChange={handleKaryawan}
+            >
+              <option value={true}>Aktif</option>
+              <option value={false}>Tidak Aktif</option>
+            </select>
+          </div>
+          <div className="grup">
             <label htmlFor="alamat">Alamat</label>
             <input
               type="text"
@@ -108,9 +141,11 @@ const UpdateKaryawan = () => {
             />
           </div>
         </form>
-          <button onClick={(e) => handleEditKaryawan(params.nik, karyawan, e)}>
-            Update
-          </button>
+				<input type="text" value={barcode} />
+        <button onClick={() => generateQRcode()}>Clik</button>
+        <button onClick={(e) => handleEditKaryawan(params.nik, karyawan, e)}>
+          Update
+        </button>
       </main>
     </>
   );
