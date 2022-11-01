@@ -18,9 +18,10 @@ body {
 	text-align: center;
 }
 .video {
-  width: 200px;
+  width: 400px;
+	height: 400px;
   display: block;
-  margin: 2.5rem auto;
+  margin: 0 auto;
   border-radius: 1rem;
   box-shadow: 10px 10px 20px 5px rgba(0, 0, 0, 0.4);
 }

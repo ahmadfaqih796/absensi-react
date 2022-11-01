@@ -123,18 +123,29 @@ const Absensi = () => {
             ))}
           </tbody>
         </table>
+				
         <QrReader
           className="video"
+					delay={300}
           onResult={(result, error) => {
             if (!!result) {
               setScanResultWebCam(result?.text);
+              navigate("/absensi");
             }
             if (!!error) {
-              console.info(error);
+              // console.info(error);
             }
           }}
         />
-        <h3>Scanned Code: {scanResultWebCam}</h3>
+        <h3>NIK : {scanResultWebCam}</h3>
+
+        {scanResultWebCam ? (
+          <button
+            onClick={(e) => handleTambahAbsensiMasuk({ nik: scanResultWebCam }, e)}
+          >
+            Silahkan klik Absen
+          </button>
+        ) : null}
       </main>
     </>
   );
