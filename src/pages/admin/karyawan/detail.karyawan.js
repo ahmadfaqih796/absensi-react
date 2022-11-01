@@ -107,6 +107,9 @@ const DetailKaryawan = () => {
               disabled
             />
           </div>
+					<div className="grup">
+						<img className="qrcode" src={karyawan.qrcode} alt="qrcode" />
+					</div>
         </form>
         <CetakKaryawan karyawan={karyawan} />
         {/* <p>{JSON.stringify(karyawan)}</p> */}

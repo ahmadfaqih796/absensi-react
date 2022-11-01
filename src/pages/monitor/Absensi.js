@@ -55,6 +55,29 @@ const Absensi = () => {
       <NavigasiMonitor />
       <main className="konten">
         <legend>Silahkan Absensi</legend>
+        <QrReader
+          scanDelay={300}
+          className="video"
+          constraints={{ facingMode: "user" }}
+          onResult={(result, error) => {
+            if (!!result) {
+              setScanResultWebCam(result?.text);
+            }
+            if (!!error) {
+              // console.info(error);
+            }
+          }}
+        />
+        <h3>NIK : {scanResultWebCam}</h3>
+        {scanResultWebCam ? (
+          <button
+            onClick={(e) =>
+              handleTambahAbsensiMasuk({ nik: scanResultWebCam }, e)
+            }
+          >
+            Silahkan klik Absen
+          </button>
+        ) : null}
         <div className="flex">
           <form className="search">
             <input
@@ -123,29 +146,6 @@ const Absensi = () => {
             ))}
           </tbody>
         </table>
-				
-        <QrReader
-          className="video"
-					delay={300}
-          onResult={(result, error) => {
-            if (!!result) {
-              setScanResultWebCam(result?.text);
-              navigate("/absensi");
-            }
-            if (!!error) {
-              // console.info(error);
-            }
-          }}
-        />
-        <h3>NIK : {scanResultWebCam}</h3>
-
-        {scanResultWebCam ? (
-          <button
-            onClick={(e) => handleTambahAbsensiMasuk({ nik: scanResultWebCam }, e)}
-          >
-            Silahkan klik Absen
-          </button>
-        ) : null}
       </main>
     </>
   );

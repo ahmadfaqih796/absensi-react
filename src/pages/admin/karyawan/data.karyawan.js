@@ -4,6 +4,7 @@ import {
   deleteKaryawan,
   getAllKaryawan,
 } from "../../../providers/admin.provider";
+import { useNavigate } from "react-router-dom";
 
 export const Posisi = ({ spv, admin }) => {
   if (admin === true && spv === true) {
@@ -25,6 +26,7 @@ export const Posisi = ({ spv, admin }) => {
 };
 
 const DataKaryawan = () => {
+  const navigate = useNavigate();
   const [karyawan, setKaryawan] = useState([]);
   const [page, setPage] = useState(1);
   const [mundur, setMundur] = useState(0);
@@ -47,6 +49,7 @@ const DataKaryawan = () => {
   const handleDelete = (nik, e) => {
     deleteKaryawan(nik).then(() => {
       alert("data berhasil dihapus");
+      navigate("admin/karyawan");
     });
   };
 
@@ -91,7 +94,11 @@ const DataKaryawan = () => {
   const list = [];
   for (let i = 1; i <= total; i++) {
     // list.push(<Pagination key={i} />);
-    list.push(<button key={i} onClick={(e) => halaman(i, e)}>{i}</button>);
+    list.push(
+      <button key={i} onClick={(e) => halaman(i, e)}>
+        {i}
+      </button>
+    );
   }
 
   return (

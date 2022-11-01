@@ -18,6 +18,10 @@
 		font-size: 1rem;
 		font-size: 2rem;
 	}
+	.qrcode {
+		width: 250px;
+		height: 250px;
+	}
 	p {
 		text-align: center;
 	}

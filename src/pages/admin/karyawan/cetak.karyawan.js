@@ -63,6 +63,13 @@ const CetakKaryawan = ({ karyawan }) => {
               <td>:</td>
               <td>{karyawan.isActive ? "Aktif" : "Tidak Aktif"}</td>
             </tr>
+            <tr>
+              <td>Barcode</td>
+              <td>:</td>
+              <td>
+                <img className="qrcode" src={karyawan.qrcode} alt="qrcode" />
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>
