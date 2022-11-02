@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
 import { getDetailKaryawan } from "../../providers/admin.provider";
-import { Posisi } from "../admin/karyawan/data.karyawan";
+import { Posisi } from "./karyawan/data.karyawan";
 
-const AkunKaryawan = () => {
+const AkunAdmin = () => {
   const nik = localStorage.getItem("nik");
   const [karyawan, setKaryawan] = useState("");
   useEffect(() => {
@@ -20,8 +20,7 @@ const AkunKaryawan = () => {
           <Posisi spv={karyawan.isSPV} admin={karyawan.isAdmin} /> di posisi{" "}
           {karyawan.departemen} dengan memilik NIK dengan nomor {karyawan.nik},
           alamat tinggal saat ini {karyawan.alamat} dan nomor telepon yang bisa
-          dihubungi {karyawan.phone} untuk mengubah password silahkan hubungi
-          Admin
+          dihubungi {karyawan.phone}.
         </h1>
         <a href={karyawan.qrcode} download>
           <img className="qrcode" src={karyawan.qrcode} alt="qrcode" />
@@ -30,4 +29,4 @@ const AkunKaryawan = () => {
     </>
   );
 };
-export default AkunKaryawan;
+export default AkunAdmin;

@@ -19,6 +19,7 @@ import DetailSPV from "./pages/spv/detail.spv";
 import AkunKaryawan from "./pages/karyawan/detail.karyawan";
 import AbsensiMasuk from "./pages/monitor/AbsensiMasuk";
 import AbsensiPulang from "./pages/monitor/AbsensiPulang";
+import AkunAdmin from "./pages/admin/detail.admin";
 
 const Protected = () => {
   const lokal = {
@@ -42,6 +43,7 @@ function App() {
           <Route index element={<BerandaAdmin />} />
           <Route path="/admin/absensi" element={<DataAbsensi />} />
           <Route path="/admin/karyawan" element={<DataKaryawan />} />
+          <Route path="/admin/detail/:nik" element={<AkunAdmin />} />
           <Route path="/admin/karyawan/tambah" element={<CreateKaryawan />} />
           <Route
             path="/admin/karyawan/update/:nik"

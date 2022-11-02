@@ -21,6 +21,9 @@ const MenuNavbar = ({ admin, spv, logout, nik }) => {
         <li>
           <a href="/admin/laporan">Laporan</a>
         </li>
+				<li>
+          <a href={"/admin/detail/" + nik}>Akun</a>
+        </li>
         <li>
           <a href="/login" onClick={logout}>
             Logout
