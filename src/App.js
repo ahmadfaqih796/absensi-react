@@ -1,7 +1,6 @@
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
 import "./assets/css/root.css";
 import LoginAdmin from "./pages/admin/Login";
-import Absensi from "./pages/monitor/Absensi";
 import DataKaryawan from "./pages/admin/karyawan/data.karyawan";
 import UpdateKaryawan from "./pages/admin/karyawan/update.karyawan";
 import DetailKaryawan from "./pages/admin/karyawan/detail.karyawan";
@@ -18,6 +17,8 @@ import LaporanKaryawan from "./pages/karyawan/all.laporan";
 import About from "./pages/monitor/About";
 import DetailSPV from "./pages/spv/detail.spv";
 import AkunKaryawan from "./pages/karyawan/detail.karyawan";
+import AbsensiMasuk from "./pages/monitor/AbsensiMasuk";
+import AbsensiPulang from "./pages/monitor/AbsensiPulang";
 
 const Protected = () => {
   const lokal = {
@@ -74,7 +75,8 @@ function App() {
         </Route>
         <Route path="/" element={<LoginAdmin />} />
         <Route path="/login" element={<LoginAdmin />} />
-        <Route path="/absensi" element={<Absensi />} />
+        <Route path="/absensi-masuk" element={<AbsensiMasuk />} />
+        <Route path="/absensi-pulang" element={<AbsensiPulang />} />
         <Route path="/about" element={<About />} />
       </Routes>
     </BrowserRouter>

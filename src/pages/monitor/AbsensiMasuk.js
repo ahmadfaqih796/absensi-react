@@ -8,7 +8,7 @@ import {
 import NavigasiMonitor from "./Navigasi";
 import { QrReader } from "react-qr-reader";
 
-const Absensi = () => {
+const AbsensiMasuk = () => {
   const navigate = useNavigate();
   const [scanResultWebCam, setScanResultWebCam] = useState("");
   const [absensi, setAbsensi] = useState([]);
@@ -30,15 +30,8 @@ const Absensi = () => {
     createAbsensiMasuk(absensi, e).then((response) => {
       alert("anda sudah absen masuk");
     });
-    navigate("/absensi");
+    navigate("/absensi-masuk");
   };
-
-  // const handleTambahAbsensiPulang = (absensi, e) => {
-  //   createAbsensiPulang(absensi, e).then((response) => {
-  //     alert("anda sudah absen pulang");
-  //   });
-  //   navigate("/absensi");
-  // };
 
   return (
     <>
@@ -46,7 +39,8 @@ const Absensi = () => {
       <main className="konten">
         <legend>Absensi Masuk</legend>
         <p className="center">
-          Jam masuk dimulai pada pukul 07:00 WIB dan jam pulang di mulai pukul
+          Jam masuk dimulai pada pukul 07:00 WIB, apabila absen jam masuk diatas
+          jam 08:00 WIB maka akan dinyatakan terlambat dan jam pulang di mulai pukul
           17:00 WIB
         </p>
       </main>
@@ -87,8 +81,7 @@ const Absensi = () => {
                 <th>NIK</th>
                 <th>Nama</th>
                 <th>Jam Masuk</th>
-                <th>Status</th>
-								<th>Keterangan</th>
+                <th>Keterangan</th>
               </tr>
             </thead>
             <tbody>
@@ -100,16 +93,8 @@ const Absensi = () => {
                   <td>{data.name}</td>
                   <td>{data.jamMasuk}</td>
                   <td>
-                    {data.status ? (
-                      <i
-                        style={{ color: "green" }}
-                        className="fa-solid fa-check"
-                      ></i>
-                    ) : (
-                      <i className="fa-solid fa-arrows-rotate"></i>
-                    )}
+                    {data.jamMasuk > "08:00:00" ? "Telat" : "Tepat waktu"}
                   </td>
-									<td>{data.jamMasuk > "08:00:00" ? "Telat" : "Tepat waktu"}</td>
                 </tr>
               ))}
             </tbody>
@@ -119,4 +104,4 @@ const Absensi = () => {
     </>
   );
 };
-export default Absensi;
+export default AbsensiMasuk;

@@ -36,7 +36,10 @@ const NavigasiMonitor = () => {
       >
         <ul>
           <li>
-            <a href="/absensi">Absensi</a>
+            <a href="/absensi-masuk">Absen Masuk</a>
+          </li>
+					<li>
+            <a href="/absensi-pulang">Absen Pulang</a>
           </li>
           <li>
             <a href="/about">About</a>
