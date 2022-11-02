@@ -34,11 +34,6 @@ const DataLaporanAdmin = () => {
         alert(err.message);
       });
   }, [halaman, tanggal]);
-  // const handleDelete = (nik, e) => {
-  //   deleteKaryawan(nik).then(() => {
-  //     alert("data berhasil dihapus");
-  //   });
-  // };
 
   return (
     <>

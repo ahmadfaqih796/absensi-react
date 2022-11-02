@@ -3,6 +3,7 @@ import moment from "moment/moment";
 import { getAllLaporan, updateStatusLaporan } from "../../providers/laporan.provider";
 import Navbar from "../../components/Navbar";
 import { useNavigate } from "react-router-dom";
+import CetakLaporan from "../admin/laporan/cetak.laporan";
 
 const DataLaporanSPV = () => {
   const navigate = useNavigate();
@@ -41,6 +42,7 @@ const DataLaporanSPV = () => {
             value={tanggal}
             onChange={(e) => setTanggal(e.target.value)}
           />
+					<CetakLaporan laporan={laporan} tanggal={tanggal} />
         </form>
         <table>
           <thead>

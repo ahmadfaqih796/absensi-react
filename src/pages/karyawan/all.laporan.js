@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import { getLaporanUser } from "../../providers/laporan.provider";
+import CetakLaporan from "../admin/laporan/cetak.laporan";
 
 const LaporanKaryawan = () => {
   const params = useParams();
@@ -38,6 +39,7 @@ const LaporanKaryawan = () => {
             value={tanggal}
             onChange={(e) => setTanggal(e.target.value)}
           />
+					<CetakLaporan laporan={laporan} tanggal={tanggal} />
         </form>
         <table>
           <thead>
