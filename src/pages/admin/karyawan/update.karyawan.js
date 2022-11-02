@@ -37,7 +37,7 @@ const UpdateKaryawan = () => {
   const generateQRcode = async () => {
     try {
       const res = await QRcode.toDataURL(karyawan.qrcode);
-			setBarcode(res)
+      setBarcode(res);
       console.log(res);
     } catch (error) {
       console.log(error);
@@ -57,13 +57,22 @@ const UpdateKaryawan = () => {
         <a href="/admin/karyawan" className="tambah">
           &#60;
         </a>
+        <section className="form-qrcode">
+          <input type="text" value={barcode} />
+          <input
+            type="submit"
+            onClick={() => generateQRcode()}
+            value={"Dapatkan Barcode"}
+          />
+        </section>
         <form className="karyawan">
           <div className="grup">
             <label htmlFor="qrcode">Barcode</label>
             <input
               type="text"
               name="qrcode"
-              value={karyawan.qrcode}
+							placeholder="isi barcode disini"
+              value={karyawan.qrcode === karyawan.nik ? "" : karyawan.qrcode}
               onChange={handleKaryawan}
             />
           </div>
@@ -141,8 +150,6 @@ const UpdateKaryawan = () => {
             />
           </div>
         </form>
-				<input type="text" value={barcode} />
-        <button onClick={() => generateQRcode()}>Clik</button>
         <button onClick={(e) => handleEditKaryawan(params.nik, karyawan, e)}>
           Update
         </button>

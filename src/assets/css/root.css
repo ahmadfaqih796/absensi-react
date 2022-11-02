@@ -21,7 +21,7 @@ body {
   width: 300px;
   height: 300px;
   display: block;
-  /* margin: 0 auto; */
+  margin: 0 auto;
   border-radius: 1rem;
   background-color: var(--succes);
   border: 2px solid var(--primary);
@@ -111,12 +111,21 @@ legend {
 .flex {
   display: flex;
   justify-content: space-around;
+	flex-wrap: wrap;
 }
 .flex-pagination {
   display: flex;
   justify-content: center;
   width: 250px;
   margin: 0 auto;
+}
+.flex-absen {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+.flex-absen .card:nth-child(1) {
+	width: 400px;
 }
 button {
   display: block;
@@ -163,7 +172,7 @@ h1 {
   src: url(../font/Roboto-Regular.ttf);
 }
 @media screen and (max-width: 500px) {
-  video {
+  .video {
     width: 250px;
   }
   legend {
