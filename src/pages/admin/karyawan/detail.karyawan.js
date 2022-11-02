@@ -13,8 +13,8 @@ const defaultKaryawan = {
   departemen: "",
   phone: "",
   alamat: "",
-	tanggalMasuk: "",
-	isActive: ""
+  tanggalMasuk: "",
+  isActive: "",
 };
 
 const DetailKaryawan = () => {
@@ -31,8 +31,10 @@ const DetailKaryawan = () => {
       <Navbar />
       <main className="konten">
         <legend>Detail</legend>
-				<a href="/admin/karyawan" className="tambah">&#60;</a>
-				<form className="karyawan">
+        <a href="/admin/karyawan" className="tambah">
+          &#60;
+        </a>
+        <form className="karyawan">
           <div className="grup">
             <label htmlFor="username">Username</label>
             <input
@@ -44,12 +46,7 @@ const DetailKaryawan = () => {
           </div>
           <div className="grup">
             <label htmlFor="name">Nama</label>
-            <input
-              type="text"
-              name="name"
-              value={karyawan.name}
-              disabled
-            />
+            <input type="text" name="name" value={karyawan.name} disabled />
           </div>
           <div className="grup">
             <label htmlFor="gender">Jenis Kelamin</label>
@@ -73,23 +70,13 @@ const DetailKaryawan = () => {
 
           <div className="grup">
             <label htmlFor="phone">No Handphone</label>
-            <input
-              type="number"
-              name="phone"
-              value={karyawan.phone}
-              disabled
-            />
+            <input type="number" name="phone" value={karyawan.phone} disabled />
           </div>
           <div className="grup">
             <label htmlFor="alamat">Alamat</label>
-            <input
-              type="text"
-              name="alamat"
-              value={karyawan.alamat}
-              disabled
-            />
+            <input type="text" name="alamat" value={karyawan.alamat} disabled />
           </div>
-					<div className="grup">
+          <div className="grup">
             <label htmlFor="isActive">Status</label>
             <input
               type="text"
@@ -98,7 +85,7 @@ const DetailKaryawan = () => {
               disabled
             />
           </div>
-					<div className="grup">
+          <div className="grup">
             <label htmlFor="tanggalMasuk">Tanggal Masuk</label>
             <input
               type="text"
@@ -107,9 +94,11 @@ const DetailKaryawan = () => {
               disabled
             />
           </div>
-					<div className="grup">
-						<img className="qrcode" src={karyawan.qrcode} alt="qrcode" />
-					</div>
+          <div className="grup">
+            <a href={karyawan.qrcode} download>
+              <img className="qrcode" src={karyawan.qrcode} alt="qrcode" />
+            </a>
+          </div>
         </form>
         <CetakKaryawan karyawan={karyawan} />
         {/* <p>{JSON.stringify(karyawan)}</p> */}
