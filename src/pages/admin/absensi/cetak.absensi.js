@@ -26,7 +26,7 @@ const CetakAbsensi = ({ absensi, tanggal }) => {
         <hr />
         <h1 className="judul">Absensi {tanggal}</h1>
         <table>
-				<thead>
+          <thead>
             <tr>
               <th>No</th>
               <th>Kode Absen</th>
@@ -46,13 +46,17 @@ const CetakAbsensi = ({ absensi, tanggal }) => {
                 <td>{data.name}</td>
                 <td>{data.jamMasuk}</td>
                 <td>{data.jamPulang}</td>
-                <td>{data.status ? "valid" : "belum valid"}</td>
+                <td>
+                  {data.jamMasuk && !data.jamPulang ? "belum valid" : "valid"}
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-      <button onClick={Print} className="tombol-cetak">cetak</button>
+      <button onClick={Print} className="tombol-cetak">
+        cetak
+      </button>
     </>
   );
 };

@@ -54,7 +54,7 @@ const DataAbsensi = () => {
                 <td>{data.name}</td>
                 <td>{data.jamMasuk}</td>
                 <td>{data.jamPulang}</td>
-                <td>{data.status ? "valid" : "belum valid"}</td>
+                <td>{data.jamMasuk && !data.jamPulang ? "belum valid" : "valid"}</td>
               </tr>
             ))}
           </tbody>
